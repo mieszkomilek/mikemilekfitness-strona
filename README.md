@@ -1,5 +1,5 @@
 # MikeMilekFitness — Mike Miłek Fitness
-Statyczna wersja strony głównej mikemilekfitness.com, przygotowana dla GitHub Pages.
+Statyczna strona i katalog MikeMilekFitness na GitHub Pages. Bieżący AS-IS i kierunek TO-BE: PROJECT_BRAIN.md; TODO: MIGRATION_PLAN.md; dowody audytu: AUDIT_2026-09-14.md.
 
 ## Start pracy z AI
 1. AGENTS.md — instrukcje pracy.
@@ -11,9 +11,10 @@ Statyczna wersja strony głównej mikemilekfitness.com, przygotowana dla GitHub 
 ## Lokalnie
 Wymagany Python 3.9 lub nowszy. Brak zależności zewnętrznych.
 ```sh
-python3 scripts/import_media.py
+python3 scripts/import_media.py --offline
 python3 scripts/site_build.py
 python3 scripts/site_qa.py
+python3 scripts/migration_qa.py
 python3 -m http.server 8080 --directory _site
 ```
 Otwórz http://localhost:8080/.
@@ -22,4 +23,4 @@ Otwórz http://localhost:8080/.
 Settings → Pages → Source: GitHub Actions.
 Jeden workflow `.github/workflows/pages.yml` weryfikuje media, buduje, sprawdza i publikuje `_site/`.
 Podgląd: https://mieszkomilek.github.io/strona-mikemilekfitness/
-Domena mikemilekfitness.com pozostaje na Shopify. Nie dodajemy CNAME.
+Produkcja: https://mikemilekfitness.com/ — GitHub Pages, Cloudflare DNS only. HTTP i www przekierowują do HTTPS domeny głównej. SEO nadal noindex i baseUrl podglądu; szczegóły w DOMAIN_CUTOVER.md. Stan rejestratora i abonamentu Shopify nie jest potwierdzony.

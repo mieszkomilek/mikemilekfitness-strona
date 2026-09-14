@@ -1,4 +1,6 @@
-# Audyt treści — 2026-09-10
+# Audyt treści — źródła z 2026-09-10
+
+Aktualizacja 2026-09-14: lokalne QA ponownie potwierdziło zgodność 7 opisów i 29 wariantów ze snapshotem. Nie pobierano nowych danych Shopify. Poniższe porównania są historyczne; SEO techniczne jest zaimplementowane, lecz publiczne indeksowanie pozostaje wyłączone.
 
 ## Rozszerzenie w 1.10
 Ponownie odczytano wszystkie 6 polityk przez Shopify Admin API. Pełny oryginał: data/policies-source-2026-09-10.json.
@@ -42,5 +44,5 @@ Wszystkie siedem podstron zawierało nieźródłowy tekst „Oferta dopasowana d
 
 scripts/offer_qa.py porównuje pełne teksty opisów ze snapshotem po normalizacji białych znaków i dopuszczonej zmianie marki, sprawdza warianty, metadane, lokalne linki i ikony.
 To potwierdza zgodność z odczytem z 2026-09-10, a nie stałą synchronizację z Shopify.
-Punkt 3 (SEO techniczne, przełączenie indeksowania) nie został rozpoczęty. Podgląd pozostaje noindex.
-Strony prawne i Partnerzy nie były przedmiotem tego audytu. Ich wcześniejsze robocze treści wymagają osobnego porównania przed uznaniem całej migracji za zakończoną.
+W chwili audytu 1.09 punkt 3 nie był rozpoczęty. W 1.10 dodano SEO techniczne; nadal nie uruchomiono indeksowania.
+W audycie 1.09 nie badano stron prawnych i Partnerów; porównanie źródłowe wykonano w 1.10 (opis powyżej). Przegląd prawny i dopasowanie polityk do procesu sprzedaży nadal pozostają otwarte.

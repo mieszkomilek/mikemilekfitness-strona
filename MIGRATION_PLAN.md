@@ -1,26 +1,31 @@
-# Plan migracji
-## Etap 1 — fundament i pierwsza strona
-- [x] Odczyt struktury repo wzorcowego, bez kopiowania jego kodu i treści.
-- [x] Inwentaryzacja Shopify Files oraz obrazów i fontów strony głównej.
-- [x] Pobranie 22 plików i zapis źródeł, rozmiarów oraz SHA-256.
-- [x] Zapis odnośników do 8 filmów YouTube.
-- [x] Osobne dane treści i siedmiu ofert, szablon, CSS i menu mobilne.
-- [x] Wszystkie CTA oferty zastąpione wskazanym wspólnym linkiem PayPal.
-- [x] Dokumentacja AI, wersjonowanie, build i QA.
-- [x] Workflow GitHub Pages; ustawienie Source: GitHub Actions użytkownik potwierdził.
-- [x] Przywrócony dostęp do zapisu GitHub; przygotowany import plików.
-- [ ] Potwierdzenie pierwszego zdalnego deploymentu i dostępności adresu Pages.
+# TODO — migracja i kolejny etap
+Stan 2026-09-14. Dowody: AUDIT_2026-09-14.md; AS-IS i TO-BE: PROJECT_BRAIN.md. Migracja nie jest w całości zamknięta.
 
-## Etap 2 — dopracowanie strony głównej
-1. Porównać wygląd z Shopify na telefonie i komputerze: kadrowanie hero, odstępy, font, karty, stopka.
-2. Zweryfikować aktualność opisów, cen i nagłówka „Najczęściej kupowane w tym tygodniu” (to zachowany tekst, nie raport analityczny).
-3. Dodać zoptymalizowane warianty obrazów i srcset, zachowując wszystkie oryginały.
-4. Ustalić usługę newslettera i ewentualną prawdziwą promocję.
+## Potwierdzone zakończone elementy
+- [x] Statyczny katalog, siedem ofert, kontakt, partnerzy, polityki i puste aktualności są lokalne.
+- [x] 22 obrazy/fonty z manifestu dostępne lokalnie; offline import i SHA-256 przechodzą.
+- [x] GitHub Pages wdrożył main ab802aa, workflow #15 success; HTML produkcji zgodny z buildem.
+- [x] Cloudflare DNS active, rekordy GitHub Pages DNS only; HTTPS domeny głównej i przekierowania HTTP/www działają.
+- [x] Generator 18 dawnych ścieżek oraz 404; lokalne testy obu trybów SEO przechodzą. Nie oznacza to serwerowych 301 ani pełnego testu wszystkich publicznych tras.
+- [x] Usunięto newsletter, formularz oraz niepotwierdzony ranking tygodniowy; opisów nie trzeba ponownie migrować od zera.
 
-## Etap 3 — pełne odejście od Shopify
-1. Przenieść Kontakt, Partnerzy, polityki i ewentualne szczegóły ofert.
-2. Zastąpić wspólny link PayPal płatnościami dopasowanymi do oferty, wariantów i dostawy produktów cyfrowych, jeśli użytkownik to zleci.
-3. Sprawdzić proces sprzedaży; płatny zakup testowy wymaga osobnego polecenia.
-4. Przygotować mapę przekierowań starych URL (GitHub Pages nie obsługuje dowolnych przekierowań serwerowych).
-5. Po akceptacji przełączyć domenę, canonical, sitemap i indeksowanie; zweryfikować HTTPS.
-6. Shopify wyłączyć dopiero po sprawdzeniu treści, sprzedaży i przekierowań.
+## Do zamknięcia migracji
+| Priorytet | Zadanie | Kryterium ukończenia |
+| --- | --- | --- |
+| P1 | Produkcyjne adresy SEO, potem świadome uruchomienie indeksowania | baseUrl domeny głównej; sprawdzone canonical, OG, JSON-LD, robots, sitemap i cele 18 przejść; testy lokalne i produkcyjne po wdrożeniu; indexingEnabled=true dopiero w zaakceptowanym etapie |
+| P1 | Własność domeny w GitHub i Search Console | Potwierdzenie ustawień właściciela; poprawny rekord weryfikacji otrzymany z usługi; po uruchomieniu SEO zgłoszona produkcyjna sitemap |
+| P1 | Bezpieczeństwo odejścia od Shopify | Prywatny eksport wymaganych danych i płatnych materiałów, próba odczytu/odtworzenia, inwentaryzacja aplikacji i subskrypcji, ustalony rejestrator/odnowienie domeny i koszty; dopiero osobna decyzja o wyłączeniu |
+| P1 | Poczta | Test przychodzący i wychodzący z udziałem właściciela oraz wynik SPF/DKIM/DMARC; brak wysyłki bez autoryzacji; sam MX nie zamyka zadania |
+| P1 | Polityki i zgodność z faktyczną sprzedażą | Uzupełnione przez właściciela dane administratora/retencja, przegląd zasad cyfrowych produktów i nieaktualnych odniesień do fizycznej wysyłki/kont użytkowników; akceptacja treści bez deklarowania audytu prawnego przez QA |
+| P2 | Test użytkowy produkcji | Wszystkie 18 dawnych tras i cele, 404, kontakt, menu klawiaturą, telefon/desktop oraz przeglądarka Instagrama sprawdzone; zapisane wyniki i usterki |
+| P2 | Domknięcie lokalności mediów | Ustalić prawa/dostęp do wideo, sposób lokalnego przechowania i rozmiary; usunąć zależność YouTube lub jawnie zatwierdzić wyjątek; oryginały obrazów zachować |
+| P2 | Optymalizacja obrazów | Pomiary i test wizualny uzasadniają srcset/nowe warianty; oryginały pozostają bez zmian |
+
+## Oddzielny późniejszy etap — płatności
+Wspólny PayPal bez zmian. Powiązanie produktu/wariantu/ceny, dostawa i test procesu sprzedaży wymagają osobnego zakresu. Nie oznaczać sklepu cyfrowego jako gotowego na podstawie działającego linku. Płatny zakup testowy wymaga osobnego polecenia.
+
+## Następny etap rozwoju aplikacji — najpierw specyfikacja
+1. Po dostarczeniu Drive/Sheets zinwentaryzować arkusze i reguły w prywatnym miejscu; do publicznego repo wyłącznie niesensytywna specyfikacja.
+2. Uzgodnić jednostki, zaokrąglenia, wyjątki i przypadki brzegowe; porównać wyniki z zatwierdzonymi przykładami użytkownika. Kryterium: zgodność każdej odwzorowanej formuły albo jawnie zaakceptowana różnica.
+3. Zaprojektować MVP i role użytkownik/admin, dane diet i atlasu oraz granice sprzedaży. Kryterium: zaakceptowane przepływy i priorytety.
+4. Porównać warianty architektury Java, UI, bazy i magazynu plików wraz z kosztami, backupem i eksploatacją. Kryterium: zaakceptowana decyzja techniczna i budżet przed implementacją/usługami.

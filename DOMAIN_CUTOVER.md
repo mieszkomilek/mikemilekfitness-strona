@@ -1,21 +1,8 @@
-# Przełączenie domeny — stan 2026-09-11
+# Domena — AS-IS i pozostałe kroki
+Stan zweryfikowany 2026-09-14. Szczegóły testów: AUDIT_2026-09-14.md.
 
-## Aktualny operator DNS
-
-Do 2026-09-10 panel zarządzania domeną `mikemilekfitness.com` znajdował się w Shopify. 2026-09-10 nameservery przełączono na Cloudflare: `alice.ns.cloudflare.com` i `nile.ns.cloudflare.com`. Strefa Cloudflare ma status Active, rekordy strony i poczty są odtworzone, a 2026-09-11 certyfikat GitHub Pages został wystawiony. Rejestracja domeny nadal jest u dotychczasowego rejestratora.
-
-## Stan odczytany z DNS przed przełączeniem
-
-- NS: ns-cloud-c1/c2/c3/c4.googledomains.com (infrastruktura widoczna przy zarządzaniu przez Shopify).
-- A @: 185.199.108.153 (ustawione w Shopify; pozostałe adresy A GitHub Pages mogą być dodane zgodnie z polityką operatora).
-- AAAA @: brak na zrzucie po zmianie (nie dodawano bez potwierdzenia formularza Shopify).
-- CNAME www: mieszkomilek.github.io (ustawione w Shopify).
-- MX @: 1 mx.mikemilekfitness.com.cust.b.hostedemail.com.
-- TXT SPF @: v=spf1 include:_spf.hostedemail.com ~all.
-
-To odczyt rekordów, nie pełny eksport strefy. Przed zapisem zrobić eksport z panelu, w tym DKIM, DMARC, weryfikacje i pozostałe subdomeny. Nie zmieniać NS ani rekordów pocztowych.
-
-## Docelowe rekordy
+## Potwierdzone
+Cloudflare API: strefa active, NS alice.ns.cloudflare.com i nile.ns.cloudflare.com. Wszystkie rekordy strony mają proxied=false (DNS only), więc Cloudflare nie pośredniczy w HTTP/TLS. Stronę obsługuje GitHub Pages. Poniższe rekordy są odczytane, nie tylko planowane:
 
 | Typ | Nazwa | Wartość |
 | --- | --- | --- |
@@ -29,27 +16,25 @@ To odczyt rekordów, nie pełny eksport strefy. Przed zapisem zrobić eksport z 
 | AAAA | @ | 2606:50c0:8003::153 |
 | CNAME | www | mieszkomilek.github.io |
 
-Zastępujemy wyłącznie dotychczasowe A/AAAA @ i CNAME www. Nie wpisywać nazwy repozytorium do CNAME.
 
-## Kolejność wykonania — stan
+Poczta w odczytanej strefie: MX @ z priorytetem 1 do mx.mikemilekfitness.com.cust.b.hostedemail.com; SPF @: v=spf1 include:_spf.hostedemail.com ~all; DMARC: v=DMARC1; p=none. Jest też TXT _provider=shopify. Nie znaleziono DKIM ani rekordu weryfikacji GitHub w tej odpowiedzi. Nie usuwać ani nie uzupełniać rekordów na podstawie domysłów. To nie jest test dostarczania poczty ani dowód kompletności migracji poprzedniej strefy.
 
-1. Wykonane: Cloudflare zone utworzona, rekordy przygotowane, custom domain ustawiona w GitHub Pages.
-2. Zabezpieczyć eksport strefy i dane/materiały potrzebne z Shopify; publiczne kopie źródeł w data/ nie są kopią klientów, zamówień, aplikacji ani płatnych plików.
-3. Zweryfikować domenę w ustawieniach konta GitHub, publikując podany przez GitHub rekord TXT. Wartości TXT nie zgadywać.
-4. Wykonane: Custom domain ustawiona na `mikemilekfitness.com`.
-5. Wykonane: nameservery Shopify przełączone na Cloudflare; poczta zachowana.
-6. Ustawić baseUrl=https://mikemilekfitness.com/ oraz indexingEnabled=true w site.config.json; wygenerować, sprawdzić i opublikować.
-7. Certyfikat wystawiony 2026-09-11. Następny krok: zaznaczyć Enforce HTTPS i sprawdzić domenę główną, www, stare adresy produktów/polityk i kontakt.
-8. W Google Search Console dodać/zweryfikować domenę i zgłosić https://mikemilekfitness.com/sitemap.xml. Potrzebna zalogowana sesja właściciela.
-9. Shopify wygaszać dopiero po testach oraz zabezpieczeniu domeny/poczty i wymaganych prywatnych danych; PayPal jest osobnym późniejszym etapem.
+| Wejście | Wynik 2026-09-14 |
+| --- | --- |
+| https://mikemilekfitness.com/ | 200, TLS zaakceptowany przez curl |
+| http://mikemilekfitness.com/ | 301 → https://mikemilekfitness.com/ → 200 |
+| https://www.mikemilekfitness.com/ | 301 → https://mikemilekfitness.com/ → 200, TLS www poprawny |
+| http://www.mikemilekfitness.com/ | 301 → https://mikemilekfitness.com/ → 200 |
 
-## Zachowanie starych adresów
+Wymuszanie HTTPS działa w testowanych odpowiedziach. Checkbox Enforce HTTPS nie został odczytany: anonimowy GET GitHub /repos/mieszkomilek/strona-mikemilekfitness/pages zwrócił 404, co nie dowodzi braku konfiguracji. Nie ma potrzeby ponownego przełączania NS ani dodawania domeny tylko na podstawie historycznej checklisty.
 
-Generator tworzy fizyczne strony pod starymi ścieżkami z natychmiastowym meta refresh, linkiem i canonical do nowego adresu. To nie jest przekierowanie HTTP 301; GitHub Pages nie zapewnia własnych reguł 301 dla dowolnych ścieżek. Mapa znajduje się w data/redirect-map.json. Pełne 301 wymagają dodatkowej warstwy obsługi HTTP — DNS A/CNAME nie przekierowuje ścieżek URL.
+## Niewiadome i kolejne kroki
+Aktualny rejestrator, płatnik i termin odnowienia domeny wymagają sprawdzenia przez właściciela. Zmiana DNS nie oznacza transferu do Cloudflare Registrar. Stan anulowania Shopify i rozliczeń nie jest potwierdzony.
+Pozostają: weryfikacja własności domeny w GitHub, produkcyjne adresy SEO, indeksowanie i Search Console, pełny test tras/UI, poczta, prywatny backup i rozliczenia. Kryteria: MIGRATION_PLAN.md. Nie wykonano tych operacji w audycie.
 
-## Powrót w razie problemu
+## Dawne adresy
+Mapa data/redirect-map.json generuje 18 stron HTML z meta refresh, linkiem i canonical; nie są to HTTP 301 do nowych podstron. Cele używają obecnie baseUrl podglądu. DNS nie mapuje ścieżek. Ewentualne serwerowe 301 wymagają osobnej decyzji o warstwie HTTP.
 
-Przywrócić zapisane A/AAAA/CNAME, usunąć custom domain z Pages i przywrócić konfigurację podglądu baseUrl + noindex. Zachować działający sklep do czasu weryfikacji przełączenia.
-
-Źródło rekordów i kolejności: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site (odczyt 2026-09-10).
-Przy publikacji z GitHub Actions plik CNAME w repo nie ustawia custom domain — wymagane są ustawienia Pages.
+## Historia i rollback
+Według notatek z 2026-09-10 domeną zarządzano przez Shopify; wcześniejsze NS to ns-cloud-c1/c2/c3/c4.googledomains.com. Zapisane A 185.199.108.153 i CNAME www do github.io były już etapem migracji, nie konfiguracją powrotu do Shopify. Nie traktować ich jako gotowego rollbacku sklepu.
+Przed kolejną zmianą DNS zabezpieczyć prywatny eksport aktualnej strefy. Powrót wersji strony: nowy revert commit i ponowny deployment sprawdzonego artefaktu. Powrót hostingu do Shopify wymaga aktualnych, potwierdzonych ustawień sklepu i domeny; nie zgadywać rekordów ani pochopnie usuwać custom domain. Zachować rekordy pocztowe.

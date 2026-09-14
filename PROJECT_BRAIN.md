@@ -1,50 +1,34 @@
 # PROJECT_BRAIN — MikeMilekFitness
-## Bieżący stan — wersja 1.11, 2026-09-11
-Aktualizacja dokumentacji do publikacji 2026-09-14: użytkownik potwierdził działanie HTTPS 2026-09-11 po ponownym dodaniu domeny w Pages. Samo zaznaczenie Enforce HTTPS i test w przeglądarce Instagrama nie zostały osobno potwierdzone. Cloudflare obsługuje DNS (rekordy strony DNS only); certyfikat dla odwiedzających obsługuje GitHub Pages. Transfer rejestracji domeny i zamknięcie Shopify nie zostały wykonane. Starsze sekcje decyzji poniżej opisują historię, nie bieżący stan.
-Użytkownik zlecił domknięcie migracji, łącznie z domeną/GitHub Pages, ale wyłączył zmiany PayPal. Poprzedni zakaz DNS w AGENTS.md został odpowiednio uaktualniony.
-Aktualizacja domeny: `mikemilekfitness.com` była zarządzana z poziomu Shopify; 2026-09-10 nameservery przełączono na Cloudflare (`alice.ns.cloudflare.com`, `nile.ns.cloudflare.com`). Strefa Cloudflare ma status Active, komplet rekordów GitHub Pages oraz zachowane MX/TXT poczty. Rejestracja domeny nadal pozostaje poza Cloudflare Registrar. 2026-09-11 GitHub Pages potwierdził DNS i wystawił certyfikat HTTPS; Enforce HTTPS jest gotowe do włączenia.
-Przygotowano pełne źródła polityk (data/policies-source-2026-09-10.json), przywrócono pełny regulamin, zwroty, wysyłkę i notę prawną. Zmiany redakcyjne: marka, domena, kontakt oraz wskazany PayPal. Nie certyfikowano zgodności prawnej oryginałów. Polityka prywatności to jawnie dostosowany opis działania statycznej strony, bez rejestracji i newslettera; jej pełna wersja prawna wymaga danych administratora i zasad retencji, których nie zgadujemy.
-Partnerzy: potwierdzono cztery marki, kod Maczfit i adresy w źródle; uzupełniono brakujący adres Wypasu. Blog News jest pusty — dodano lokalne Aktualności bez wpisów. Kontakt e-mail i telefon potwierdzają również dane źródłowe sklepu; WhatsApp jest dyspozycją użytkownika.
-SEO: jedna canonical i robots na każdej stronie, WebPage/WebSite JSON-LD bez fikcyjnych ocen i gwarancji, pełna sitemap przy indexingEnabled=true. Obecny podgląd pozostaje noindex. Test trybu produkcyjnego działa w katalogu tymczasowym.
-18 dawnych ścieżek ma lokalne strony przejścia (meta refresh i link), a nie HTTP 301; DNS nie mapuje ścieżek. Dodano 404. GitHub Actions nie pobiera już zasobów z Shopify: import_media.py --offline tylko weryfikuje repo.
-Plan DNS wraz z rekordami przed/po i rollbackiem: DOMAIN_CUTOVER.md. Custom domain ustawiono w GitHub Pages, nameservery przełączono z Shopify na Cloudflare, a certyfikat HTTPS został wystawiony. Obecny build nadal ma `noindex` do świadomego włączenia indeksowania produkcji. Search Console, eksport prywatnych danych/płatnych materiałów i wyłączenie Shopify pozostają do wykonania. Archiwum publicznej strony nie jest pełnym backupem sklepu.
 
-## Cel i zakres
-Migracja mikemilekfitness.com z Shopify do mieszkomilek/strona-mikemilekfitness. Pierwszy etap: samodzielna strona główna, oryginalne media, wspólny link PayPal, GitHub Pages i dokumentacja dla AI.
-Użytkownik wskazał repo strona-ewamilek wyłącznie jako wzór organizacji i źródło istniejącego linku PayPal. Kod, treści i obrazy tego repo nie zostały przeniesione.
+## Zasady odczytu i źródła prawdy
+Stan zweryfikowany 2026-09-14 opisują sekcje AS-IS poniżej oraz AUDIT_2026-09-14.md. TO-BE oznacza kierunek zaakceptowany przez użytkownika, nie wdrożenie. TODO i kryteria ukończenia: MIGRATION_PLAN.md. Starsze decyzje na końcu są historią; nie zastępują aktualnego stanu. Każda kolejna zmiana wymaga aktualizacji dokumentacji i weryfikacji przed commitem.
 
-## Źródła i wygląd
-Odczyt Shopify oraz publicznej strony: 2026-09-09. Czarne tło, biała typografia Archivo Narrow, logo, szerokie zdjęcie Mike’a, opis „Czym się wyróżniam ?”, siedem kart oferty, film i stopka.
-Treść opisu i misji zaktualizowana w wersji 1.01 na polecenie użytkownika. Ceny oraz kolejność ofert odpowiadają źródłu z dnia odczytu; nie są synchronizowane na żywo.
+## AS-IS — potwierdzone kodem i odczytem usług
+- Publiczne repo: mieszkomilek/strona-mikemilekfitness, main. Przed tym audytem HEAD ab802aa4e76e15c41eab3c3401bc538f07c5cdc3, wersja strony 1.11. Brak nowszych zmian w pobranej historii. Deployment #15 zakończony sukcesem 2026-09-14; publiczny HTML zgodny bajtowo z lokalnym buildem.
+- Statyczny HTML/CSS/JavaScript, generator i QA w Pythonie (standard library); brak backendu, bazy, kont klientów i panelu administracyjnego. Dane: data/home.json, data/catalog.json i snapshoty; szablony w templates/. index.html jest generowany.
+- GitHub Actions .github/workflows/pages.yml buduje i publikuje wyłącznie _site/. Import mediów działa z --offline, niczego nie pobiera z Shopify ani nie zapisuje do repo podczas CI.
+- Hosting: GitHub Pages pod https://mikemilekfitness.com/. Cloudflare obsługuje DNS, strefa active, alice.ns.cloudflare.com i nile.ns.cloudflare.com. Cztery A i cztery AAAA GitHub Pages oraz CNAME www są DNS only. Szczegóły: DOMAIN_CUTOVER.md.
+- HTTPS głównej domeny: 200. HTTP głównej, HTTP www i HTTPS www: 301 do https://mikemilekfitness.com/, następnie 200. curl weryfikował TLS bez -k. Wymuszanie HTTPS potwierdzone zachowaniem HTTP; stan checkboxa Enforce HTTPS nie został odczytany z panelu/API.
+- SEO nadal przed uruchomieniem: indexingEnabled=false, baseUrl wskazuje adres github.io, productionUrl domenę główną. Publiczna strona ma noindex,follow, canonical/OG/JSON-LD podglądu, pustą sitemap; robots wskazuje sitemap podglądu. Nie włączono indeksowania w tym zadaniu.
+- Lokalne strony: główna, katalog, 7 ofert, kontakt, partnerzy, 6 stron polityk/noty i puste aktualności; build zawiera też 404. 18 dawnych ścieżek ma HTML z meta refresh i linkiem (nie HTTP 301 do nowej podstrony). Obecnie cel tych przejść również wskazuje github.io.
+- Oferty: 7 opisów i 29 wariantów zgodnych z zapisanym odczytem Shopify z 2026-09-10. To snapshot, nie bieżąca synchronizacja. Nie korygować samodzielnie nietypowej ceny 35 zł. CONTENT_AUDIT.md opisuje pochodzenie i ograniczenia.
+- Wszystkie 22 pliki manifestu są lokalne i mają poprawne SHA-256: 18 obrazów w assets/shopify/ oraz 4 fonty w assets/fonts/ (11 067 190 bajtów). Nazwa katalogu nie oznacza zależności sieciowej. Wideo strony nadal jest osadzeniem YouTube; 8 zapisanych odnośników nie stanowi archiwum filmów. Nie ma zależności wykonawczej od CDN Shopify; pełna lokalność wideo nie jest osiągnięta.
+- Kontakt: e-mail, WhatsApp i sociale; bez newslettera i formularza. Marka MikeMilekFitness. Opowieść o wieku 40 lat i weganizmie jest deklaracją użytkownika z 2026-09-09, nie wyliczeniem daty urodzenia.
+- PayPal pozostaje wskazanym wcześniej wspólnym URL z site.config.json. Historyczne pochodzenie linku nie upoważnia do kopiowania repo strona-ewamilek. Link nie przekazuje produktu, wariantu ani ceny; brak automatycznej dostawy. Transakcje nie były testowane.
 
-## Struktura
-`templates/index.html` — układ strony; `data/home.json` — treść; `data/catalog.json` — oferta; `site.config.json` — domeny, płatność, SEO; `styles.css`, `mobile-home.css`, `assets/js/core.js` — wygląd i menu.
-`index.html` jest generowany, lecz przechowywany w repo dla łatwego podglądu. `scripts/site_build.py` składa stronę i `_site/`; `scripts/site_qa.py` kontroluje wynik. Repo ma tę samą zasadę rozdzielenia danych, kodu i dokumentacji co wzorzec, bez zbędnych modułów numerologii, paneli i podstron Ewy.
+## Deklaracje i niewiadome
+Użytkownik potwierdził HTTPS po ponownym dodaniu domeny w Pages; obecny test potwierdza działanie. Zmiana NS nie dowodzi transferu rejestracji. Aktualny rejestrator, odnowienie domeny, status abonamentu Shopify, eksport prywatnych danych i materiałów, rozliczenia oraz dostarczanie poczty nie zostały sprawdzone. MX/SPF/DMARC są w Cloudflare; nie oznacza to testu poczty. Brak DKIM w odczytanej strefie wymaga wyjaśnienia z operatorem, nie zgadywania rekordu. Nie potwierdzono weryfikacji własności domeny w GitHub ani Search Console. Nie wykonywano nowego audytu danych Shopify ani operacji PayPal.
 
-## Media
-Shopify Files: 17 obrazów i 7 ExternalVideo; wszystkie obrazy pobrane. Dodatkowo miniatura produktu widoczna w HTML i 4 fonty WOFF2. Łącznie 22 pliki z sumami SHA-256, 11 067 190 bajtów. Oryginały zachowane, bez rekompresji. Plik OFL fontu znajduje się obok fontów.
-Filmy są hostowane na YouTube: zapisano 7 odnośników z Shopify i 1 film strony głównej w data/external-videos.json. To nie są pobrane pliki wideo. Shopify nie zawierał plików Video ani GenericFile w zwróconej bibliotece. Nie archiwizowano aplikacji Digital Downloads ani prywatnych materiałów klientów.
-`data/media-manifest.json` mapuje źródła na lokalne nazwy, rozmiary i SHA-256. `scripts/import_media.py` odtwarza tylko brakujące pliki i nie akceptuje zmienionych źródeł.
+## TO-BE — zaakceptowany kierunek, projektowanie przed implementacją
+Aplikacja z backendem w Javie, wygodnym UI i panelem administracyjnym: generator diet, kalkulatory zapotrzebowania kalorycznego, atlas ćwiczeń ze zdjęciami i rysunkami oraz sprzedaż produktów cyfrowych. Najpierw odwzorować reguły i formuły użytkownika z Google Drive/Sheets oraz zweryfikować je na zaakceptowanych przykładach. Użytkownik dostarczy dane później; integracja Drive nie jest wykonana.
+Spring Boot, PostgreSQL, React/Next.js, S3, Render i Hetzner są propozycjami, nie decyzjami. Wybór architektury, dostawców i kosztów wymaga osobnego projektu. Prywatne repo jest rozważane; nie zmieniać widoczności ani nie uruchamiać płatnych usług bez ustalenia zakresu i kosztów.
 
-## Płatności
-Zgodnie z poleceniem użytkownika wszystkie 21 odnośników sprzedażowych kieruje do https://www.paypal.com/ncp/payment/7JL9X24RW64Q8 — linku odczytanego z index.html repo strona-ewamilek.
-Nie utworzono ani nie zmieniono zasobów PayPal. Nie sprawdzono transakcji ani zgodności kwoty i produktu w checkout. Wspólny link nie przekazuje wyboru produktu, wariantu ani ceny i nie zapewnia automatycznej dostawy e-booków. Przed uruchomieniem właściwej sprzedaży ustalić docelowe płatności per oferta.
+## Stałe ograniczenia i decyzja tego audytu
+Nie rozpoczynać przebudowy ani zmian płatności. Nie kopiować kodu, treści i grafik strona-ewamilek. Nie publikować sekretów, danych klientów ani płatnych materiałów — także w historii Git. Publiczny snapshot strony nie jest backupem sklepu. Nie wyłączać Shopify przed zabezpieczeniem domeny, materiałów/danych i sprawdzeniem rozliczeń. Treści bez wymyślonych obietnic, opinii i parametrów. Media mają być lokalne; pozostałą zależność YouTube rozstrzygnąć osobno.
+Audyt zmienia tylko dokumentację. version.txt pozostaje 1.11, ponieważ nie zmieniamy artefaktu strony; rewizję dokumentacji identyfikuje commit i wpis z 2026-09-14 w VERSION_HISTORY.md.
 
-## Hosting i SEO
-Podgląd: https://mieszkomilek.github.io/strona-mikemilekfitness/. Domena produkcyjna https://mikemilekfitness.com/ działa z GitHub Pages przez Cloudflare DNS. Certyfikat HTTPS jest aktywny; `indexingEnabled` pozostaje wyłączone do osobnego uruchomienia SEO.
-Podgląd ma noindex,follow i pustą sitemap, aby nie konkurować z działającym Shopify. Robots umożliwia odczyt noindex. Zmiana indeksowania i domeny wyłącznie w świadomym etapie przełączenia.
-Workflow pages.yml uruchamia się przy push main lub ręcznie, importuje brakujące media według manifestu, zapisuje je w repo, buduje, sprawdza i publikuje wyłącznie _site/. Kolejne zwykłe wdrożenia korzystają już z lokalnych plików. Nie tworzyć jednorazowych workflowów.
-
-## Różnice funkcjonalne względem Shopify
-Nie przeniesiono koszyka, logowania klientów i wyszukiwarki sklepowej. Sprzedaż zastąpiono PayPal. Newsletter wymaga odrębnej usługi — nie publikujemy niedziałającego formularza. Nie przenosimy odliczania promocji WEGANSNOW, bo jego ważność i obsługa w PayPal nie zostały potwierdzone.
-Kontakt, Partnerzy i polityki prowadzą tymczasowo do dotychczasowej domeny. Do przeniesienia w następnym etapie przed wyłączeniem Shopify.
-Wersja 1.00 odtwarza podstawowy układ i treść; nie wykonano porównania piksel po pikselu ani testu płatności.
-
-## Wersje i kolejne sesje
-Wersje aktualizowane jawnie w version.txt i VERSION_HISTORY.md. Po zmianie generuj ponownie stronę. Raportuj numer i wynik kontroli. Nie importować historii wersji Ewy. Zapisuj każdą trwałą decyzję tutaj.
-
-## Stan przekazania
-Dostęp do zapisu GitHub został przywrócony. Wersja 1.00 przygotowana do pierwszego wdrożenia; lokalny build i QA przeszły poprawnie. Użytkownik potwierdził ustawienie GitHub Actions w Pages.
+## Historyczne decyzje wersji 1.01–1.09
+Poniższe zapisy dokumentują stan danego etapu. Kontakt wyłącznie mailowy został zastąpiony e-mailem/WhatsApp/socialami; opisy zastępcze 1.08 zastąpiono pełnymi w 1.09; zakres audytu polityk rozszerzono w 1.10. Bieżące ustalenia są powyżej.
 
 ## Decyzje wersji 1.04
 Newsletter został usunięty z zakresu. Kontakt odbywa się wyłącznie przez `mieszkomilek@gmail.com`; nie migrujemy formularza kontaktowego. Wszystkie linki płatności nadal kierują do PayPal. Strony `kontakt.html` i `partnerzy.html` zostały dodane jako kolejny etap migracji, przed dalszymi podstronami ofertowymi. Decyzje te są częścią Second Brain i muszą pozostać aktualne przy kolejnych zmianach.

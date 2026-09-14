@@ -1,12 +1,13 @@
 # PROJECT_BRAIN — MikeMilekFitness
-## Bieżący stan — wersja 1.10, 2026-09-10
+## Bieżący stan — wersja 1.11, 2026-09-11
+Aktualizacja dokumentacji do publikacji 2026-09-14: użytkownik potwierdził działanie HTTPS 2026-09-11 po ponownym dodaniu domeny w Pages. Samo zaznaczenie Enforce HTTPS i test w przeglądarce Instagrama nie zostały osobno potwierdzone. Cloudflare obsługuje DNS (rekordy strony DNS only); certyfikat dla odwiedzających obsługuje GitHub Pages. Transfer rejestracji domeny i zamknięcie Shopify nie zostały wykonane. Starsze sekcje decyzji poniżej opisują historię, nie bieżący stan.
 Użytkownik zlecił domknięcie migracji, łącznie z domeną/GitHub Pages, ale wyłączył zmiany PayPal. Poprzedni zakaz DNS w AGENTS.md został odpowiednio uaktualniony.
-Aktualizacja domeny: `mikemilekfitness.com` była zarządzana z poziomu Shopify; 2026-09-10 nameservery przełączono na Cloudflare (`alice.ns.cloudflare.com`, `nile.ns.cloudflare.com`). Strefa Cloudflare ma status Active, komplet rekordów GitHub Pages oraz zachowane MX/TXT poczty. Rejestracja domeny nadal pozostaje poza Cloudflare Registrar.
+Aktualizacja domeny: `mikemilekfitness.com` była zarządzana z poziomu Shopify; 2026-09-10 nameservery przełączono na Cloudflare (`alice.ns.cloudflare.com`, `nile.ns.cloudflare.com`). Strefa Cloudflare ma status Active, komplet rekordów GitHub Pages oraz zachowane MX/TXT poczty. Rejestracja domeny nadal pozostaje poza Cloudflare Registrar. 2026-09-11 GitHub Pages potwierdził DNS i wystawił certyfikat HTTPS; Enforce HTTPS jest gotowe do włączenia.
 Przygotowano pełne źródła polityk (data/policies-source-2026-09-10.json), przywrócono pełny regulamin, zwroty, wysyłkę i notę prawną. Zmiany redakcyjne: marka, domena, kontakt oraz wskazany PayPal. Nie certyfikowano zgodności prawnej oryginałów. Polityka prywatności to jawnie dostosowany opis działania statycznej strony, bez rejestracji i newslettera; jej pełna wersja prawna wymaga danych administratora i zasad retencji, których nie zgadujemy.
 Partnerzy: potwierdzono cztery marki, kod Maczfit i adresy w źródle; uzupełniono brakujący adres Wypasu. Blog News jest pusty — dodano lokalne Aktualności bez wpisów. Kontakt e-mail i telefon potwierdzają również dane źródłowe sklepu; WhatsApp jest dyspozycją użytkownika.
 SEO: jedna canonical i robots na każdej stronie, WebPage/WebSite JSON-LD bez fikcyjnych ocen i gwarancji, pełna sitemap przy indexingEnabled=true. Obecny podgląd pozostaje noindex. Test trybu produkcyjnego działa w katalogu tymczasowym.
 18 dawnych ścieżek ma lokalne strony przejścia (meta refresh i link), a nie HTTP 301; DNS nie mapuje ścieżek. Dodano 404. GitHub Actions nie pobiera już zasobów z Shopify: import_media.py --offline tylko weryfikuje repo.
-Plan DNS wraz z rekordami przed/po i rollbackiem: DOMAIN_CUTOVER.md. Custom domain ustawiono w GitHub Pages, a rekordy strony zmieniono w panelu Shopify. Indeksowanie produkcji, Search Console, eksport prywatnych danych/płatnych materiałów i wyłączenie Shopify pozostają do wykonania po pełnej weryfikacji domeny. Archiwum publicznej strony nie jest pełnym backupem sklepu.
+Plan DNS wraz z rekordami przed/po i rollbackiem: DOMAIN_CUTOVER.md. Custom domain ustawiono w GitHub Pages, nameservery przełączono z Shopify na Cloudflare, a certyfikat HTTPS został wystawiony. Obecny build nadal ma `noindex` do świadomego włączenia indeksowania produkcji. Search Console, eksport prywatnych danych/płatnych materiałów i wyłączenie Shopify pozostają do wykonania. Archiwum publicznej strony nie jest pełnym backupem sklepu.
 
 ## Cel i zakres
 Migracja mikemilekfitness.com z Shopify do mieszkomilek/strona-mikemilekfitness. Pierwszy etap: samodzielna strona główna, oryginalne media, wspólny link PayPal, GitHub Pages i dokumentacja dla AI.
@@ -30,7 +31,7 @@ Zgodnie z poleceniem użytkownika wszystkie 21 odnośników sprzedażowych kieru
 Nie utworzono ani nie zmieniono zasobów PayPal. Nie sprawdzono transakcji ani zgodności kwoty i produktu w checkout. Wspólny link nie przekazuje wyboru produktu, wariantu ani ceny i nie zapewnia automatycznej dostawy e-booków. Przed uruchomieniem właściwej sprzedaży ustalić docelowe płatności per oferta.
 
 ## Hosting i SEO
-Podgląd: https://mieszkomilek.github.io/strona-mikemilekfitness/. Produkcja pozostaje https://mikemilekfitness.com/ na Shopify. Brak CNAME i zmian DNS.
+Podgląd: https://mieszkomilek.github.io/strona-mikemilekfitness/. Domena produkcyjna https://mikemilekfitness.com/ działa z GitHub Pages przez Cloudflare DNS. Certyfikat HTTPS jest aktywny; `indexingEnabled` pozostaje wyłączone do osobnego uruchomienia SEO.
 Podgląd ma noindex,follow i pustą sitemap, aby nie konkurować z działającym Shopify. Robots umożliwia odczyt noindex. Zmiana indeksowania i domeny wyłącznie w świadomym etapie przełączenia.
 Workflow pages.yml uruchamia się przy push main lub ręcznie, importuje brakujące media według manifestu, zapisuje je w repo, buduje, sprawdza i publikuje wyłącznie _site/. Kolejne zwykłe wdrożenia korzystają już z lokalnych plików. Nie tworzyć jednorazowych workflowów.
 

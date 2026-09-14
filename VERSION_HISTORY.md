@@ -1,6 +1,7 @@
 # Historia wersji
 | Wersja | Data | Opis |
 | --- | --- | --- |
+| 1.11 | 2026-09-11 | Aktywny Cloudflare DNS, wystawiony certyfikat GitHub Pages HTTPS i aktualizacja Second Brain. |
 | 1.10 | 2026-09-10 | Audyt pozostałych treści, pełne polityki źródłowe, SEO wszystkich stron, stare adresy, tryb produkcji i przygotowanie DNS. |
 | 1.09 | 2026-09-10 | Pełne opisy z Shopify, 29 wariantów, źródłowy audyt treści, SEO ofert, katalog i ikony kontaktu. |
 | 1.01 | 2026-09-09 | Marka MikeMilekFitness, nowy opis i wyróżniona historia: 40 lat, wegetarianizm od 2017, weganizm od 2018. |

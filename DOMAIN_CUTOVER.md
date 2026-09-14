@@ -1,10 +1,10 @@
-# Przełączenie domeny — stan 2026-09-10
+# Przełączenie domeny — stan 2026-09-11
 
 ## Aktualny operator DNS
 
-Do 2026-09-10 panel zarządzania domeną `mikemilekfitness.com` znajdował się w Shopify. 2026-09-10 nameservery przełączono na Cloudflare: `alice.ns.cloudflare.com` i `nile.ns.cloudflare.com`. Strefa Cloudflare ma status Active; rejestracja domeny nadal jest u dotychczasowego rejestratora.
+Do 2026-09-10 panel zarządzania domeną `mikemilekfitness.com` znajdował się w Shopify. 2026-09-10 nameservery przełączono na Cloudflare: `alice.ns.cloudflare.com` i `nile.ns.cloudflare.com`. Strefa Cloudflare ma status Active, rekordy strony i poczty są odtworzone, a 2026-09-11 certyfikat GitHub Pages został wystawiony. Rejestracja domeny nadal jest u dotychczasowego rejestratora.
 
-## Stan odczytany z DNS
+## Stan odczytany z DNS przed przełączeniem
 
 - NS: ns-cloud-c1/c2/c3/c4.googledomains.com (infrastruktura widoczna przy zarządzaniu przez Shopify).
 - A @: 185.199.108.153 (ustawione w Shopify; pozostałe adresy A GitHub Pages mogą być dodane zgodnie z polityką operatora).
@@ -31,15 +31,15 @@ To odczyt rekordów, nie pełny eksport strefy. Przed zapisem zrobić eksport z 
 
 Zastępujemy wyłącznie dotychczasowe A/AAAA @ i CNAME www. Nie wpisywać nazwy repozytorium do CNAME.
 
-## Kolejność wykonania
+## Kolejność wykonania — stan
 
-1. Dostęp do panelu DNS i zalogowanego GitHub Settings → Pages. Konektor GitHub udostępnia zapis kodu, ale nie ma narzędzia ustawiania custom domain.
+1. Wykonane: Cloudflare zone utworzona, rekordy przygotowane, custom domain ustawiona w GitHub Pages.
 2. Zabezpieczyć eksport strefy i dane/materiały potrzebne z Shopify; publiczne kopie źródeł w data/ nie są kopią klientów, zamówień, aplikacji ani płatnych plików.
 3. Zweryfikować domenę w ustawieniach konta GitHub, publikując podany przez GitHub rekord TXT. Wartości TXT nie zgadywać.
-4. Ustawić Custom domain na mikemilekfitness.com w repo strona-mikemilekfitness, przed zmianą A/AAAA/CNAME.
-5. Przełączyć wskazane rekordy DNS, zachowując pocztę.
+4. Wykonane: Custom domain ustawiona na `mikemilekfitness.com`.
+5. Wykonane: nameservery Shopify przełączone na Cloudflare; poczta zachowana.
 6. Ustawić baseUrl=https://mikemilekfitness.com/ oraz indexingEnabled=true w site.config.json; wygenerować, sprawdzić i opublikować.
-7. Po wystawieniu certyfikatu włączyć Enforce HTTPS. Sprawdzić domenę główną, www, certyfikat, stare adresy produktów/polityk i kontakt.
+7. Certyfikat wystawiony 2026-09-11. Następny krok: zaznaczyć Enforce HTTPS i sprawdzić domenę główną, www, stare adresy produktów/polityk i kontakt.
 8. W Google Search Console dodać/zweryfikować domenę i zgłosić https://mikemilekfitness.com/sitemap.xml. Potrzebna zalogowana sesja właściciela.
 9. Shopify wygaszać dopiero po testach oraz zabezpieczeniu domeny/poczty i wymaganych prywatnych danych; PayPal jest osobnym późniejszym etapem.
 

@@ -39,12 +39,14 @@ def finish(root, config, catalog):
         text=re.sub(r'<meta name="robots"[^>]*>|<link rel="canonical"[^>]*>', '', text)
         robots='index,follow' if config['indexingEnabled'] else 'noindex,follow'
         meta='<meta name="robots" content="'+robots+'"><link rel="canonical" href="'+escape(url)+'">'
+        english_url=base+'en/'+('' if name=='index.html' else name)
+        meta+='<link rel="alternate" hreflang="pl" href="'+escape(url)+'"><link rel="alternate" hreflang="en" href="'+escape(english_url)+'"><link rel="alternate" hreflang="x-default" href="'+escape(base)+'">'
         if 'rel="icon"' not in text:meta+='<link rel="icon" href="assets/favicon.svg">'
         if 'property="og:image"' not in text:meta+='<meta property="og:image" content="'+escape(base+'assets/shopify/files-MIKE-3.jpg')+'">'
         schema={'@context':'https://schema.org','@type':'WebPage','name':re.search('<title>(.*?)</title>',text).group(1),'url':url,'inLanguage':'pl'}
         if name=='index.html':
             schema={'@context':'https://schema.org','@type':'WebSite','name':'MikeMilekFitness','url':base,'inLanguage':'pl'}
-        meta+='<script type="application/ld+json">'+json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')+'</script>'
+        meta+='<script type="application/ld+json">'+json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')+'</script><script src="/assets/js/language.js?v='+(root/'version.txt').read_text().strip()+'" defer></script>'
         text=text.replace('</head>',meta+'</head>')
         # Avoid stale asset versions in previously hand-written pages.
         text=re.sub(r'\.css\?v=[0-9.]+','.css?v='+ (root/'version.txt').read_text().strip(),text)

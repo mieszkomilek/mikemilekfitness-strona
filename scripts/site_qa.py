@@ -21,7 +21,7 @@ def check():
   for key in ['src','href']:
    url=a.get(key,'');u=urlsplit(url)
    if not url or u.scheme or u.netloc:continue
-   if u.path:assert (root/unquote(u.path)).exists(),f'Missing file: {url}'
+   if u.path:assert (root/unquote(u.path).lstrip('/')).exists(),f'Missing file: {url}'
    if u.fragment:assert u.fragment in ids,f'Missing anchor: {url}'
   if tag in {'img','script'}:assert not urlsplit(a.get('src','')).netloc
  for css in ['styles.css','mobile-home.css']:

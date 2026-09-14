@@ -32,9 +32,18 @@ def verify(root,production):
         assert c['baseUrl']+new in target.read_text()
         assert (site/new).exists()
     urls=ET.parse(site/'sitemap.xml').findall('.//{*}loc')
-    assert len(urls)==(len(allpages)-1 if production else 0)
+    english_pages=list((site/'en').glob('*.html'))
+    assert len(english_pages)==17
+    for p in english_pages:
+        text=p.read_text();parser=Tags();parser.feed(text)
+        assert '<html lang="en">' in text and 'hreflang="pl"' in text and 'hreflang="en"' in text,p
+        assert text.count('type="application/ld+json"')==1,p
+        assert sum(t=='h1' for t,a in parser.tags)==1,p
+        assert any(t=='script' and a.get('src','').startswith('/assets/js/language.js') for t,a in parser.tags),p
+    expected=(len(allpages)-1+len(english_pages)) if production else 0
+    assert len(urls)==expected
     assert not (site/'data').exists()
-    print(f'PASS {"production" if production else "preview"}: {len(allpages)} pages, {len(mapping)} legacy routes, sitemap, metadata, external dependency scan')
+    print(f'PASS {"production" if production else "preview"}: {len(allpages)} Polish pages, {len(english_pages)} English pages, {len(mapping)} legacy routes, sitemap, metadata, external dependency scan')
 
 def main():
     verify(R,json.loads((R/'site.config.json').read_text())['indexingEnabled'])

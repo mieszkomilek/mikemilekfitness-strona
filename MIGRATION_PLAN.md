@@ -2,6 +2,7 @@
 Stan 2026-09-14. Dowody: AUDIT_2026-09-14.md; AS-IS i TO-BE: PROJECT_BRAIN.md. Migracja nie jest w całości zamknięta.
 
 ## Potwierdzone zakończone elementy
+- [x] Wersja 1.12: 17 angielskich stron pod /en/, wybór przy pierwszej wizycie, stały przełącznik PL/EN, zapamiętanie wyboru oraz hreflang i sitemap obu języków.
 - [x] Statyczny katalog, siedem ofert, kontakt, partnerzy, polityki i puste aktualności są lokalne.
 - [x] 22 obrazy/fonty z manifestu dostępne lokalnie; offline import i SHA-256 przechodzą.
 - [x] GitHub Pages wdrożył main ab802aa, workflow #15 success; HTML produkcji zgodny z buildem.

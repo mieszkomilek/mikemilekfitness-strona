@@ -12,3 +12,4 @@
 
 - Ten standard opisuje obecną statyczną stronę; nie przesądza stosu przyszłej aplikacji Java.
 - Cel: media lokalne bez zależności Shopify/CDN Shopify. Obecne osadzenie YouTube jest pozostałą zależnością zewnętrzną do rozstrzygnięcia, nie lokalnym plikiem wideo.
+- Polski pozostaje pod dotychczasowymi adresami, angielski pod /en/. Każda para stron ma canonical oraz hreflang pl/en/x-default. Przełącznik języka jest dostępny bez zmiany adresów polskiej wersji; preferencja użytkownika jest zapisywana wyłącznie w localStorage.

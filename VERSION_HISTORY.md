@@ -5,6 +5,7 @@
 2026-09-14 — rewizja dokumentacji przy wersji strony 1.11: audyt repo/deploymentu, HTTPS i www, odczyt Cloudflare DNS, uporządkowanie AS-IS/TO-BE/TODO oraz ograniczeń. Bez zmian kodu, SEO, DNS i płatności. Testy oraz zakres dowodów: AUDIT_2026-09-14.md. Wiersz 1.11 opisuje historyczne zdarzenie z 11 września; commit ab802aa opublikowano 14 września.
 | Wersja | Data | Opis |
 | --- | --- | --- |
+| 1.12 | 2026-09-14 | Wersja angielska pod /en/, wybór języka przy pierwszej wizycie, stały przełącznik PL/EN, zapamiętanie ustawienia, hreflang i 34 adresy sitemap. |
 | 1.11 | 2026-09-11 | Aktywny Cloudflare DNS, wystawiony certyfikat GitHub Pages HTTPS i aktualizacja Second Brain. |
 | 1.10 | 2026-09-10 | Audyt pozostałych treści, pełne polityki źródłowe, SEO wszystkich stron, stare adresy, tryb produkcji i przygotowanie DNS. |
 | 1.09 | 2026-09-10 | Pełne opisy z Shopify, 29 wariantów, źródłowy audyt treści, SEO ofert, katalog i ikony kontaktu. |

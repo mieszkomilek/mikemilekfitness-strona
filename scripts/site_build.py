@@ -4,6 +4,7 @@ from html import escape
 import json,shutil
 from offer_pages import render_offers
 from migration import prepare, finish
+from i18n import build as build_english
 R=Path(__file__).resolve().parents[1]
 def build():
  c=json.loads((R/'site.config.json').read_text());h=json.loads((R/'data/home.json').read_text());catalog=json.loads((R/'data/catalog.json').read_text());v=(R/'version.txt').read_text().strip();cards=[]
@@ -28,5 +29,11 @@ def build():
  for name in ['index.html','oferta.html','kontakt.html','partnerzy.html','warunki.html','zwroty.html','prywatnosc.html','wysylka.html','nota-prawna.html','aktualnosci.html'] + [p['handle']+'.html' for p in catalog] + ['offer.css','styles.css','mobile-home.css','video.css','social.css','robots.txt','sitemap.xml','manifest.webmanifest','version.txt','.nojekyll']:shutil.copy2(R/name,dest/name)
  shutil.copytree(R/'assets',dest/'assets')
  finish(R,c,catalog)
+ english_pages=build_english(R,c,catalog)
+ if c['indexingEnabled']:
+  sitemap=(dest/'sitemap.xml').read_text()
+  extra=''.join('<url><loc>'+escape(c['baseUrl']+'en/'+('' if name=='index.html' else name))+'</loc></url>' for name in sorted(english_pages))
+  sitemap=sitemap.replace('</urlset>',extra+'</urlset>')
+  (dest/'sitemap.xml').write_text(sitemap);(R/'sitemap.xml').write_text(sitemap)
  print(f'Built version {v}: {len(catalog)} offers')
 if __name__=='__main__':build()

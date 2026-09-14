@@ -30,7 +30,7 @@ def check_offers(root, parser_class):
                 raw=attrs.get(attr,'');url=urlsplit(raw)
                 assert 'shopify' not in url.netloc.lower(),(name,raw)
                 if url.scheme or url.netloc or not raw:continue
-                target=unquote(url.path) or name
+                target=(unquote(url.path) or name).lstrip('/')
                 if target=='./':target='index.html'
                 assert (root/'_site'/target).exists(),(name,raw)
                 if url.fragment and target in pages:assert url.fragment in pages[target][2],(name,raw)

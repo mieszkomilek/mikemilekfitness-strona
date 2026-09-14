@@ -1,6 +1,6 @@
 # Audyt treści — źródła z 2026-09-10
 
-Aktualizacja 2026-09-14: lokalne QA ponownie potwierdziło zgodność 7 opisów i 29 wariantów ze snapshotem. Nie pobierano nowych danych Shopify. Poniższe porównania są historyczne; SEO techniczne jest zaimplementowane, lecz publiczne indeksowanie pozostaje wyłączone.
+Aktualizacja 2026-09-14: lokalne QA ponownie potwierdziło zgodność 7 opisów i 29 wariantów ze snapshotem. Nie pobierano nowych danych Shopify. Poniższe porównania są historyczne; SEO techniczne jest zaimplementowane, a w tym etapie włączono publiczne indeksowanie produkcji.
 
 ## Rozszerzenie w 1.10
 Ponownie odczytano wszystkie 6 polityk przez Shopify Admin API. Pełny oryginał: data/policies-source-2026-09-10.json.

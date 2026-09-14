@@ -12,7 +12,7 @@ Stan 2026-09-14. Dowody: AUDIT_2026-09-14.md; AS-IS i TO-BE: PROJECT_BRAIN.md. M
 ## Do zamknięcia migracji
 | Priorytet | Zadanie | Kryterium ukończenia |
 | --- | --- | --- |
-| P1 | Produkcyjne adresy SEO, potem świadome uruchomienie indeksowania | baseUrl domeny głównej; sprawdzone canonical, OG, JSON-LD, robots, sitemap i cele 18 przejść; testy lokalne i produkcyjne po wdrożeniu; indexingEnabled=true dopiero w zaakceptowanym etapie |
+| P1 | Produkcyjne adresy SEO i uruchomienie indeksowania | [x] baseUrl domeny głównej; canonical, OG, JSON-LD, robots, sitemap i cele 18 przejść sprawdzone lokalnie; indexingEnabled=true. Pozostaje wdrożenie i sprawdzenie publicznego HTML oraz zgłoszenie sitemap w Search Console. |
 | P1 | Własność domeny w GitHub i Search Console | Potwierdzenie ustawień właściciela; poprawny rekord weryfikacji otrzymany z usługi; po uruchomieniu SEO zgłoszona produkcyjna sitemap |
 | P1 | Bezpieczeństwo odejścia od Shopify | Prywatny eksport wymaganych danych i płatnych materiałów, próba odczytu/odtworzenia, inwentaryzacja aplikacji i subskrypcji, ustalony rejestrator/odnowienie domeny i koszty; dopiero osobna decyzja o wyłączeniu |
 | P1 | Poczta | Test przychodzący i wychodzący z udziałem właściciela oraz wynik SPF/DKIM/DMARC; brak wysyłki bez autoryzacji; sam MX nie zamyka zadania |

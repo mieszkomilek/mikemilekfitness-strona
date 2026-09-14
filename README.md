@@ -23,4 +23,4 @@ Otwórz http://localhost:8080/.
 Settings → Pages → Source: GitHub Actions.
 Jeden workflow `.github/workflows/pages.yml` weryfikuje media, buduje, sprawdza i publikuje `_site/`.
 Podgląd: https://mieszkomilek.github.io/strona-mikemilekfitness/
-Produkcja: https://mikemilekfitness.com/ — GitHub Pages, Cloudflare DNS only. HTTP i www przekierowują do HTTPS domeny głównej. SEO nadal noindex i baseUrl podglądu; szczegóły w DOMAIN_CUTOVER.md. Stan rejestratora i abonamentu Shopify nie jest potwierdzony.
+Produkcja: https://mikemilekfitness.com/ — GitHub Pages, Cloudflare DNS only. HTTP i www przekierowują do HTTPS domeny głównej. Produkcyjne SEO jest włączone: canonical, sitemap, robots i index,follow wskazują domenę główną. Stan rejestratora i abonamentu Shopify nie jest potwierdzony.

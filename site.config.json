@@ -1,10 +1,10 @@
 {
   "siteName": "MikeMilekFitness",
-  "baseUrl": "https://mieszkomilek.github.io/strona-mikemilekfitness/",
+  "baseUrl": "https://mikemilekfitness.com/",
   "productionUrl": "https://mikemilekfitness.com/",
   "language": "pl",
   "email": "mieszkomilek@gmail.com",
-  "indexingEnabled": false,
+  "indexingEnabled": true,
   "pages": [
     "aktualnosci.html",
     "nota-prawna.html",

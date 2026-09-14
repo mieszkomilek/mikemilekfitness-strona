@@ -1,5 +1,7 @@
 # Historia wersji
 
+2026-09-14 — włączenie produkcyjnego SEO: baseUrl domeny głównej, index,follow, canonical/OG/JSON-LD produkcji oraz produkcyjna sitemap i robots. PayPal i treści ofert bez zmian. Weryfikacja: site_qa i migration_qa.
+
 2026-09-14 — rewizja dokumentacji przy wersji strony 1.11: audyt repo/deploymentu, HTTPS i www, odczyt Cloudflare DNS, uporządkowanie AS-IS/TO-BE/TODO oraz ograniczeń. Bez zmian kodu, SEO, DNS i płatności. Testy oraz zakres dowodów: AUDIT_2026-09-14.md. Wiersz 1.11 opisuje historyczne zdarzenie z 11 września; commit ab802aa opublikowano 14 września.
 | Wersja | Data | Opis |
 | --- | --- | --- |

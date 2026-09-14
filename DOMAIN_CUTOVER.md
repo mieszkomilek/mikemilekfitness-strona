@@ -30,7 +30,7 @@ Wymuszanie HTTPS działa w testowanych odpowiedziach. Checkbox Enforce HTTPS nie
 
 ## Niewiadome i kolejne kroki
 Aktualny rejestrator, płatnik i termin odnowienia domeny wymagają sprawdzenia przez właściciela. Zmiana DNS nie oznacza transferu do Cloudflare Registrar. Stan anulowania Shopify i rozliczeń nie jest potwierdzony.
-Pozostają: weryfikacja własności domeny w GitHub, produkcyjne adresy SEO, indeksowanie i Search Console, pełny test tras/UI, poczta, prywatny backup i rozliczenia. Kryteria: MIGRATION_PLAN.md. Nie wykonano tych operacji w audycie.
+Pozostają: weryfikacja własności domeny w GitHub, zgłoszenie produkcyjnej sitemap w Search Console, pełny test tras/UI, poczta, prywatny backup i rozliczenia. Produkcyjne adresy SEO i indeksowanie są już włączone w konfiguracji i wymagają potwierdzenia po wdrożeniu. Kryteria: MIGRATION_PLAN.md.
 
 ## Dawne adresy
 Mapa data/redirect-map.json generuje 18 stron HTML z meta refresh, linkiem i canonical; nie są to HTTP 301 do nowych podstron. Cele używają obecnie baseUrl podglądu. DNS nie mapuje ścieżek. Ewentualne serwerowe 301 wymagają osobnej decyzji o warstwie HTTP.

@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://mieszkomilek.github.io/strona-mikemilekfitness/sitemap.xml
+Sitemap: https://mikemilekfitness.com/sitemap.xml

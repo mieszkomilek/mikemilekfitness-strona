@@ -35,6 +35,7 @@ def finish(root, config, catalog):
     for name in canonical_files:
         p=dest/name;text=p.read_text()
         text=re.sub(r'<script type="application/ld\+json">.*?</script>', '', text, flags=re.S)
+        text=re.sub(r'<link rel="alternate"[^>]*>|<script src="/assets/js/language.js[^\"]*" defer></script>', '', text)
         url=base+('' if name=='index.html' else name)
         text=re.sub(r'<meta name="robots"[^>]*>|<link rel="canonical"[^>]*>', '', text)
         robots='index,follow' if config['indexingEnabled'] else 'noindex,follow'
@@ -42,7 +43,9 @@ def finish(root, config, catalog):
         english_url=base+'en/'+('' if name=='index.html' else name)
         meta+='<link rel="alternate" hreflang="pl" href="'+escape(url)+'"><link rel="alternate" hreflang="en" href="'+escape(english_url)+'"><link rel="alternate" hreflang="x-default" href="'+escape(base)+'">'
         if 'rel="icon"' not in text:meta+='<link rel="icon" href="assets/favicon.svg">'
+        if 'href="social.css' not in text:meta+='<link rel="stylesheet" href="social.css?v='+(root/'version.txt').read_text().strip()+'">'
         if 'property="og:image"' not in text:meta+='<meta property="og:image" content="'+escape(base+'assets/shopify/files-MIKE-3.jpg')+'">'
+        text=re.sub(r'(<meta property="og:image" content=")[^\"]*/assets/',lambda m:m[1]+escape(base)+'assets/',text)
         schema={'@context':'https://schema.org','@type':'WebPage','name':re.search('<title>(.*?)</title>',text).group(1),'url':url,'inLanguage':'pl'}
         if name=='index.html':
             schema={'@context':'https://schema.org','@type':'WebSite','name':'MikeMilekFitness','url':base,'inLanguage':'pl'}

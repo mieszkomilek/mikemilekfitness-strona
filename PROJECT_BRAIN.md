@@ -4,6 +4,8 @@
 Stan zweryfikowany 2026-09-14 opisują sekcje AS-IS poniżej oraz AUDIT_2026-09-14.md. TO-BE oznacza kierunek zaakceptowany przez użytkownika, nie wdrożenie. TODO i kryteria ukończenia: MIGRATION_PLAN.md. Starsze decyzje na końcu są historią; nie zastępują aktualnego stanu. Każda kolejna zmiana wymaga aktualizacji dokumentacji i weryfikacji przed commitem.
 
 ## AS-IS — potwierdzone kodem i odczytem usług
+- Wersja 1.13 (2026-09-15): EN jest generowana z kompletnej struktury każdej z 17 polskich stron, z jawnym słownikiem `data/translations-en.json`. Brak tłumaczenia przerywa build. Przywrócono film, fakty osobiste, pełne intro/stopkę, opisy ofert, FAQ, powiązane oferty, 29 przetłumaczonych wariantów, zdjęcia/linki partnerów oraz pełne treści informacyjne. Opisy wersji 1.12 jako pełnego tłumaczenia były zbyt szerokie: istniały wszystkie adresy, lecz EN zawierała skróty.
+- Naprawiono ukrywanie flag przez mobilne menu i kontrast aktywnego języka. Każda strona ładuje style przełącznika. Testy 1.13 porównują strukturę, media, linki i ceny PL/EN oraz SEO produkcji i podglądu. Zakres testów i ograniczenia: `BILINGUAL_AUDIT_2026-09-15.md`.
 - Wersja 1.12 dodaje pełną strukturę PL/EN: polskie adresy pozostają w katalogu głównym, angielskie odpowiedniki są pod `/en/`. Pierwsza wizyta na polskim adresie pokazuje wybór języka z angielskim jako pierwszą opcją; wybór jest zapisywany lokalnie w przeglądarce. Przełącznik 🇵🇱 PL / 🇬🇧 EN pozostaje dostępny w nagłówku każdej strony.
 - Angielskie strony obejmują stronę główną, katalog, 7 ofert, kontakt, partnerów, aktualności oraz polityki/informacje prawne. Angielskie polityki są tłumaczeniem informacyjnym istniejących treści, nie osobnym audytem prawnym. Obie wersje mają canonical, hreflang pl/en/x-default, JSON-LD i wpisy sitemap.
 - Publiczne repo: mieszkomilek/strona-mikemilekfitness, main. Bazą wersji 1.12 jest commit b9a55eb z produkcyjnym SEO. Historyczny deployment #15 dla ab802aa zakończył się sukcesem 2026-09-14; wdrożenie 1.12 wymaga potwierdzenia po pushu.
@@ -27,7 +29,7 @@ Spring Boot, PostgreSQL, React/Next.js, S3, Render i Hetzner są propozycjami, n
 
 ## Stałe ograniczenia i decyzja tego audytu
 Nie rozpoczynać przebudowy ani zmian płatności. Nie kopiować kodu, treści i grafik strona-ewamilek. Nie publikować sekretów, danych klientów ani płatnych materiałów — także w historii Git. Publiczny snapshot strony nie jest backupem sklepu. Nie wyłączać Shopify przed zabezpieczeniem domeny, materiałów/danych i sprawdzeniem rozliczeń. Treści bez wymyślonych obietnic, opinii i parametrów. Media mają być lokalne; pozostałą zależność YouTube rozstrzygnąć osobno.
-Audyt zmienia tylko dokumentację. version.txt pozostaje 1.11, ponieważ nie zmieniamy artefaktu strony; rewizję dokumentacji identyfikuje commit i wpis z 2026-09-14 w VERSION_HISTORY.md.
+Historyczny audyt z 2026-09-14 zmieniał tylko dokumentację i zachował 1.11. Późniejsze etapy SEO i PL/EN zmieniły kod; bieżący numer określa version.txt.
 
 ## Historyczne decyzje wersji 1.01–1.09
 Poniższe zapisy dokumentują stan danego etapu. Kontakt wyłącznie mailowy został zastąpiony e-mailem/WhatsApp/socialami; opisy zastępcze 1.08 zastąpiono pełnymi w 1.09; zakres audytu polityk rozszerzono w 1.10. Bieżące ustalenia są powyżej.

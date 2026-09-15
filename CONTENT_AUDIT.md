@@ -1,5 +1,7 @@
 # Audyt treści — źródła z 2026-09-10
 
+Aktualizacja 2026-09-15 — audyt PL/EN 1.13: porównano wszystkie 17 par, przywrócono w EN pominięte sekcje, kompletne opisy, FAQ, warianty, zdjęcia partnerów i treści informacyjne. Słownik `data/translations-en.json` tłumaczy opublikowaną treść PL bez skracania. Ceny i cele PayPal zachowane. Oryginalne okładki oraz film nie są tłumaczone; nie deklarujemy angielskiej zawartości płatnych materiałów. Zakres dowodów: `BILINGUAL_AUDIT_2026-09-15.md`. Nie wykonano nowego odczytu Shopify ani audytu prawnego.
+
 Aktualizacja 2026-09-14: lokalne QA ponownie potwierdziło zgodność 7 opisów i 29 wariantów ze snapshotem. Nie pobierano nowych danych Shopify. Poniższe porównania są historyczne; SEO techniczne jest zaimplementowane, a w tym etapie włączono publiczne indeksowanie produkcji.
 
 ## Rozszerzenie w 1.10

@@ -95,7 +95,7 @@ def main():
         root=Path(tmp)/'site'
         shutil.copytree(R,root,ignore=shutil.ignore_patterns('.git','_site','__pycache__'))
         config=json.loads((root/'site.config.json').read_text())
-        config['baseUrl']='https://mieszkomilek.github.io/strona-mikemilekfitness/';config['indexingEnabled']=False
+        config['baseUrl']='https://mieszkomilek.github.io/mikemilekfitness-strona/';config['indexingEnabled']=False
         (root/'site.config.json').write_text(json.dumps(config))
         subprocess.run(['python3',str(root/'scripts/site_build.py')],check=True)
         subprocess.run(['python3',str(root/'scripts/site_qa.py')],check=True)

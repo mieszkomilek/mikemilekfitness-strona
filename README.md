@@ -22,7 +22,8 @@ Otwórz http://localhost:8080/.
 ## Publikacja
 Settings → Pages → Source: GitHub Actions.
 Jeden workflow `.github/workflows/pages.yml` weryfikuje media, buduje, sprawdza i publikuje `_site/`.
-Podgląd: https://mieszkomilek.github.io/strona-mikemilekfitness/
+Repozytorium: https://github.com/mieszkomilek/mikemilekfitness-strona
+Lokalny origin SSH: `git@github-mikemilekfitness:mieszkomilek/mikemilekfitness-strona.git` (istniejący dedykowany klucz). Nazwa folderu lokalnego pozostaje bez zmian.
 Produkcja: https://mikemilekfitness.com/ — GitHub Pages, Cloudflare DNS only. HTTP i www przekierowują do HTTPS domeny głównej. Produkcyjne SEO jest włączone: canonical, sitemap, robots i index,follow wskazują domenę główną. Stan rejestratora i abonamentu Shopify nie jest potwierdzony.
 
 Wersja angielska jest publikowana pod https://mikemilekfitness.com/en/. Generator tworzy obie wersje, przełącznik języka i wspólną sitemapę.

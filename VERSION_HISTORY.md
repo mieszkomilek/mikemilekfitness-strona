@@ -1,5 +1,7 @@
 # Historia wersji
 
+Zmiana nazwy repo na mieszkomilek/mikemilekfitness-strona na polecenie użytkownika: zaktualizowano lokalny origin SSH, README, Second Brain i adres testowego podglądu w migration_qa.py. Fetch przez istniejący klucz SSH poprawny. Bez zmiany domeny, folderu i wersji strony 1.14; datowane audyty zachowują historyczną nazwę repo.
+
 2026-09-15 — propozycja działu Wiedza/Knowledge: przegląd serwisów PL/świat, 42 kalkulatory/narzędzia i komponenty, mapa mięśni, 7 kategorii, strategia SEO PL/EN oraz kryteria etapów. Dokument: KNOWLEDGE_ROADMAP_2026-09-15.md. Wyłącznie dokumentacja, bez wdrażania funkcji i zmiany wersji 1.13.
 
 2026-09-14 — włączenie produkcyjnego SEO: baseUrl domeny głównej, index,follow, canonical/OG/JSON-LD produkcji oraz produkcyjna sitemap i robots. PayPal i treści ofert bez zmian. Weryfikacja: site_qa i migration_qa.

@@ -5,6 +5,7 @@ import json,shutil
 from offer_pages import render_offers
 from migration import prepare, finish
 from i18n import build as build_english
+from knowledge_preview import build as build_knowledge
 R=Path(__file__).resolve().parents[1]
 def build():
  c=json.loads((R/'site.config.json').read_text());h=json.loads((R/'data/home.json').read_text());catalog=json.loads((R/'data/catalog.json').read_text());v=(R/'version.txt').read_text().strip();cards=[]
@@ -35,5 +36,6 @@ def build():
   extra=''.join('<url><loc>'+escape(c['baseUrl']+'en/'+('' if name=='index.html' else name))+'</loc></url>' for name in sorted(english_pages))
   sitemap=sitemap.replace('</urlset>',extra+'</urlset>')
   (dest/'sitemap.xml').write_text(sitemap);(R/'sitemap.xml').write_text(sitemap)
+ build_knowledge(dest)
  print(f'Built version {v}: {len(catalog)} offers')
 if __name__=='__main__':build()

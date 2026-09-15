@@ -69,6 +69,24 @@ def verify(root,production):
     expected=(len(allpages)-1+len(english_pages)) if production else 0
     assert len(urls)==expected
     assert not (site/'data').exists()
+    previews=list((site/'wiedza').glob('*.html'))+list((site/'en/wiedza').glob('*.html'))
+    assert len(previews)==16
+    for p in previews:
+        parser=Tags();parser.feed(p.read_text())
+        assert sum(t=='h1' for t,a in parser.tags)==1,p
+        assert any(t=='meta' and a.get('name')=='robots' and a.get('content')=='noindex,nofollow' for t,a in parser.tags),p
+        assert any(t=='main' and a.get('id')=='knowledge-content' and 'hidden' in a for t,a in parser.tags),p
+        assert any(t=='form' and a.get('id')=='review-form' for t,a in parser.tags),p
+        assert any(t=='script' and 'knowledge-gate.js' in a.get('src','') for t,a in parser.tags),p
+        for t,a in parser.tags:
+            for key in ('href','src'):
+                link=a.get(key,'')
+                if not link or urlsplit(link).scheme:continue
+                path=urlsplit(urljoin('/'+str(p.relative_to(site)),link)).path
+                target=site/path.lstrip('/')
+                if path.endswith('/'):target=target/'index.html'
+                assert target.exists(),(p,link)
+    assert all('/wiedza/' not in u.text for u in urls)
     print(f'PASS {"production" if production else "preview"}: {len(allpages)} Polish pages, {len(english_pages)} English pages, {len(mapping)} legacy routes, sitemap, metadata, external dependency scan')
 
 def main():

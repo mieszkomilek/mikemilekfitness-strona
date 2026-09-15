@@ -9,6 +9,7 @@
 - Oferty dostępne bez JavaScript. Płatności pobierane z konfiguracji podczas build.
 - GitHub Pages publikuje tylko _site/, bez instrukcji AI i danych źródłowych. Samo repo jest publiczne.
 - Nie symulować prywatności hasłami zaszytymi w JavaScript. Brak danych klientów i sekretów w repo.
+- Wyjątek zaakceptowany przez użytkownika 2026-09-15: kosmetyczna bramka akceptacyjna działu Wiedza z datą YYYYMMDD (Europe/Warsaw). Nie nazywać jej zabezpieczeniem prywatności; brak treści poufnych. Podgląd noindex poza sitemap do odrębnej decyzji o publikacji indeksowalnej.
 
 - Ten standard opisuje obecną statyczną stronę; nie przesądza stosu przyszłej aplikacji Java.
 - Cel: media lokalne bez zależności Shopify/CDN Shopify. Obecne osadzenie YouTube jest pozostałą zależnością zewnętrzną do rozstrzygnięcia, nie lokalnym plikiem wideo.

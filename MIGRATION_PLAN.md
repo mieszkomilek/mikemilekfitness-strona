@@ -27,6 +27,7 @@ Stan 2026-09-14. Dowody: AUDIT_2026-09-14.md; AS-IS i TO-BE: PROJECT_BRAIN.md. M
 Wspólny PayPal bez zmian. Powiązanie produktu/wariantu/ceny, dostawa i test procesu sprzedaży wymagają osobnego zakresu. Nie oznaczać sklepu cyfrowego jako gotowego na podstawie działającego linku. Płatny zakup testowy wymaga osobnego polecenia.
 
 ## Następny etap rozwoju aplikacji — najpierw specyfikacja
+Nowy zakres do zaprojektowania (2026-09-15): dział Wiedza/Knowledge, kalkulatory i atlas. Propozycje, zależności, źródła i kryteria: KNOWLEDGE_ROADMAP_2026-09-15.md. Następna decyzja: zatwierdzić pierwszy pakiet narzędzi i pozyskać reguły/arkusze oraz media. Nie oznaczać pomysłów jako gotowych funkcji.
 1. Po dostarczeniu Drive/Sheets zinwentaryzować arkusze i reguły w prywatnym miejscu; do publicznego repo wyłącznie niesensytywna specyfikacja.
 2. Uzgodnić jednostki, zaokrąglenia, wyjątki i przypadki brzegowe; porównać wyniki z zatwierdzonymi przykładami użytkownika. Kryterium: zgodność każdej odwzorowanej formuły albo jawnie zaakceptowana różnica.
 3. Zaprojektować MVP i role użytkownik/admin, dane diet i atlasu oraz granice sprzedaży. Kryterium: zaakceptowane przepływy i priorytety.

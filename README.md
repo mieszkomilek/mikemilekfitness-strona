@@ -1,5 +1,5 @@
 # MikeMilekFitness — Mike Miłek Fitness
-Statyczna strona i katalog MikeMilekFitness na GitHub Pages. Bieżący AS-IS i kierunek TO-BE: PROJECT_BRAIN.md; TODO: MIGRATION_PLAN.md; dowody audytu: AUDIT_2026-09-14.md.
+Statyczna strona, katalog ofert i publiczna baza diet MikeMilekFitness na GitHub Pages. Bieżący AS-IS i kierunek TO-BE: PROJECT_BRAIN.md; TODO: MIGRATION_PLAN.md; dowody audytu: AUDIT_2026-09-14.md.
 
 ## Start pracy z AI
 1. AGENTS.md — instrukcje pracy.
@@ -18,6 +18,12 @@ python3 scripts/migration_qa.py
 python3 -m http.server 8080 --directory _site
 ```
 Otwórz http://localhost:8080/.
+
+Zakładka `diety.html` jest generowana z bezpiecznego `data/diets.json`. Ręczne odświeżenie z prywatnego plannera i starej bazy GetDiet:
+```sh
+python3 scripts/import_diets.py --planner-dir /ścieżka/do/mikemilekfitness-planner --getdiet-db /ścieżka/do/GetDiet/db.sqlite3
+```
+Importer publikuje wyłącznie zdjęcia, nazwy, kategorie i zbiorcze wartości odżywcze. Nie przenosi pełnych receptur, zapisanych planów ani danych klientów.
 
 ## Publikacja
 Settings → Pages → Source: GitHub Actions.

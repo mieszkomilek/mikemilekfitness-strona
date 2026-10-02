@@ -33,6 +33,17 @@ def check():
  assert ('content="noindex,follow"' in text)==(not c['indexingEnabled'])
  ET.parse(root/'sitemap.xml');json.loads((root/'manifest.webmanifest').read_text())
  assert not (root/'data').exists() and not (root/'.github').exists()
+ public_meals=json.loads((R/'data/diets.json').read_text())
+ allowed={'id','name','nameEn','image','category','categoryLabel','categoryLabelEn','preparationMinutes','ingredientCount','nutrition'}
+ allowed_nutrients={'kcal','protein','carbs','fat','fiber'}
+ assert len(public_meals)==35
+ assert all(set(meal)==allowed for meal in public_meals)
+ assert all(meal['nutrition'] is None or set(meal['nutrition'])==allowed_nutrients for meal in public_meals)
+ assert len(list((R/'assets/diets').glob('meal-*.jpg')))==35
+ diets=(root/'diety.html').read_text();diet_page=Page();diet_page.feed(diets)
+ assert sum(t=='article' and 'data-meal' in a for t,a in diet_page.tags)==35
+ assert 'id="diet-calculator"' in diets and 'id="diet-filters"' in diets
+ assert 'ingredients' not in diets.lower() and 'preparation' not in diets.lower()
  print(f'PASS: HTML, local links, {len(sales)} PayPal links, {len(assets)} media hashes, SEO, public artifact')
  check_offers(R,Page)
 if __name__=='__main__':check()

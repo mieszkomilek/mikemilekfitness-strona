@@ -6,9 +6,11 @@ from offer_pages import render_offers
 from migration import prepare, finish
 from i18n import build as build_english
 from knowledge_preview import build as build_knowledge
+from diet_pages import render as render_diets, add_navigation as add_diet_navigation
 R=Path(__file__).resolve().parents[1]
 def build():
  c=json.loads((R/'site.config.json').read_text());h=json.loads((R/'data/home.json').read_text());catalog=json.loads((R/'data/catalog.json').read_text());v=(R/'version.txt').read_text().strip();cards=[]
+ diet_count=render_diets(R,c,v)
  for p in catalog:
   t=escape(p['title']);u=escape(c['paypalUrl']);price=('Od ' if p['priceFrom'] else '')+f"{float(p['price']):.2f}".replace('.',',')+' zł PLN'
   detail=escape(p['handle']+'.html')
@@ -27,9 +29,10 @@ def build():
  dest=R/'_site'
  if dest.exists():shutil.rmtree(dest)
  dest.mkdir()
- for name in ['index.html','oferta.html','kontakt.html','partnerzy.html','warunki.html','zwroty.html','prywatnosc.html','wysylka.html','nota-prawna.html','aktualnosci.html'] + [p['handle']+'.html' for p in catalog] + ['offer.css','styles.css','mobile-home.css','video.css','social.css','robots.txt','sitemap.xml','manifest.webmanifest','version.txt','.nojekyll']:shutil.copy2(R/name,dest/name)
+ for name in ['index.html','oferta.html','diety.html','kontakt.html','partnerzy.html','warunki.html','zwroty.html','prywatnosc.html','wysylka.html','nota-prawna.html','aktualnosci.html'] + [p['handle']+'.html' for p in catalog] + ['offer.css','styles.css','mobile-home.css','video.css','social.css','diets.css','robots.txt','sitemap.xml','manifest.webmanifest','version.txt','.nojekyll']:shutil.copy2(R/name,dest/name)
  shutil.copytree(R/'assets',dest/'assets')
  finish(R,c,catalog)
+ add_diet_navigation(dest,R)
  english_pages=build_english(R,c,catalog)
  if c['indexingEnabled']:
   sitemap=(dest/'sitemap.xml').read_text()
@@ -37,5 +40,5 @@ def build():
   sitemap=sitemap.replace('</urlset>',extra+'</urlset>')
   (dest/'sitemap.xml').write_text(sitemap);(R/'sitemap.xml').write_text(sitemap)
  build_knowledge(dest)
- print(f'Built version {v}: {len(catalog)} offers')
+ print(f'Built version {v}: {len(catalog)} offers, {diet_count} public meal previews')
 if __name__=='__main__':build()

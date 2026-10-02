@@ -20,7 +20,7 @@ CATEGORIES = {
     'main': ('Dania główne', 'Main dishes'),
 }
 UI_TRANSLATIONS = {
-    'min': 'min', 'kcal': 'kcal', 'g': 'g', '— kcal': '— kcal', '— g': '— g',
+    'min': 'min', 'kcal': 'kcal', 'g': 'g', '—': '—', '— kcal': '— kcal', '— g': '— g',
     'Diety roślinne | MikeMilekFitness': 'Plant-based diets | MikeMilekFitness',
     'Przeglądaj 35 autorskich posiłków roślinnych i oblicz orientacyjne zapotrzebowanie kaloryczne.': 'Browse 35 original plant-based meals and estimate your calorie needs.',
     'Autorskie posiłki roślinne i kalkulator zapotrzebowania kalorycznego.': 'Original plant-based meals and a calorie needs calculator.',
@@ -39,7 +39,10 @@ UI_TRANSLATIONS = {
     'Nazwa posiłku': 'Meal name', 'Kategoria': 'Category', 'Wszystkie kategorie': 'All categories',
     'Brak posiłków spełniających wybrane kryteria.': 'No meals match the selected criteria.',
     'składników': 'ingredients', 'Energia': 'Energy', 'Białko': 'Protein',
-    'Węglowodany': 'Carbohydrates', 'Tłuszcz': 'Fat',
+    'Węglowodany': 'Carbohydrates', 'Tłuszcz': 'Total Fat', 'Błonnik': 'Dietary Fiber',
+    'Wartości odżywcze': 'Nutrition information', 'Porcja': 'Serving', '1 posiłek': '1 meal',
+    'Kalorie': 'Calories',
+    'Wartości szacunkowe dla całego prezentowanego posiłku.': 'Estimated values for the entire meal shown.',
     'Podgląd posiłku. Pełny przepis i skalowanie porcji są dostępne w indywidualnym planie.': 'Meal preview. The full recipe and portion scaling are available in an individual plan.',
     'Plan indywidualny': 'Individual plan', 'Potrzebujesz pełnego planu i gramatur?': 'Do you need a complete plan with precise quantities?',
     'Podgląd nie publikuje pełnych receptur. Napisz, aby ustalić cel, liczbę posiłków i wariant współpracy.': 'The preview does not publish complete recipes. Get in touch to discuss your goal, number of meals and coaching option.',

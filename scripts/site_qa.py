@@ -42,6 +42,7 @@ def check():
  assert len(list((R/'assets/diets').glob('meal-*.jpg')))==35
  diets=(root/'diety.html').read_text();diet_page=Page();diet_page.feed(diets)
  assert sum(t=='article' and 'data-meal' in a for t,a in diet_page.tags)==35
+ assert diets.count('class="nutrition-label"')==35 and 'Błonnik' in diets
  assert 'id="diet-calculator"' in diets and 'id="diet-filters"' in diets
  assert 'ingredients' not in diets.lower() and 'preparation' not in diets.lower()
  print(f'PASS: HTML, local links, {len(sales)} PayPal links, {len(assets)} media hashes, SEO, public artifact')

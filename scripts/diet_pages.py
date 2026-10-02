@@ -11,7 +11,10 @@ def _card(meal):
 <img src="{escape(meal['image'])}" width="900" height="1200" loading="lazy" alt="{escape(meal['name'])}">
 <div class="diet-card-copy"><p class="diet-category">{escape(meal['categoryLabel'])}</p><h2>{escape(meal['name'])}</h2>
 <p class="diet-meta"><span><strong>{meal['preparationMinutes']}</strong> min</span><span><strong>{meal['ingredientCount']}</strong> składników</span></p>
-<dl class="diet-nutrients"><div><dt>Energia</dt><dd>{values['kcal']} kcal</dd></div><div><dt>Białko</dt><dd>{values['protein']} g</dd></div><div><dt>Węglowodany</dt><dd>{values['carbs']} g</dd></div><div><dt>Tłuszcz</dt><dd>{values['fat']} g</dd></div></dl>
+<section class="nutrition-label" aria-label="Wartości odżywcze"><h3>Wartości odżywcze</h3><p class="nutrition-serving"><strong>Porcja</strong><span>1 posiłek</span></p>
+<div class="nutrition-calories"><span>Kalorie</span><strong>{values['kcal']} <small>kcal</small></strong></div>
+<dl><div><dt>Tłuszcz</dt><dd>{values['fat']} g</dd></div><div><dt>Węglowodany</dt><dd>{values['carbs']} g</dd></div><div class="nutrition-subrow"><dt>Błonnik</dt><dd>{values['fiber']} g</dd></div><div class="nutrition-protein"><dt>Białko</dt><dd>{values['protein']} g</dd></div></dl>
+<p class="nutrition-footnote">Wartości szacunkowe dla całego prezentowanego posiłku.</p></section>
 <p class="diet-preview-note">Podgląd posiłku. Pełny przepis i skalowanie porcji są dostępne w indywidualnym planie.</p></div></article>'''
 
 

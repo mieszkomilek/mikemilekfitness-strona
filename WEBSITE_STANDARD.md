@@ -10,6 +10,7 @@
 - GitHub Pages publikuje tylko _site/, bez instrukcji AI i danych źródłowych. Samo repo jest publiczne.
 - Nie symulować prywatności hasłami zaszytymi w JavaScript. Brak danych klientów i sekretów w repo.
 - Publiczne diety zawierają wyłącznie podglądy: nazwę, zdjęcie, kategorię, czas, liczbę składników i zbiorcze makro. Pełne składniki, przygotowanie, zapisane plany, wyniki klientów i historia obliczeń pozostają w prywatnym plannerze. Każdy import sprawdzać przed commitem.
+- Etykieta wartości odżywczych może korzystać z czytelnej hierarchii Nutrition Facts, ale nie może sugerować formalnej etykiety produktu. Nie publikować % dziennej wartości ani brakujących mikroelementów bez uzgodnionej normy i potwierdzonych danych.
 - Filtrowanie katalogu i orientacyjne kalkulatory bez trwałego zapisu realizować lokalnie w JavaScript. Backend dodawać dopiero dla kont, prywatnych danych, trwałego zapisu, panelu administracyjnego lub logiki wymagającej ochrony serwerowej.
 - Wyjątek zaakceptowany przez użytkownika 2026-09-15: kosmetyczna bramka akceptacyjna działu Wiedza z datą YYYYMMDD (Europe/Warsaw). Nie nazywać jej zabezpieczeniem prywatności; brak treści poufnych. Podgląd noindex poza sitemap do odrębnej decyzji o publikacji indeksowalnej.
 

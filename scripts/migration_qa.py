@@ -33,7 +33,7 @@ def verify(root,production):
         assert (site/new).exists()
     urls=ET.parse(site/'sitemap.xml').findall('.//{*}loc')
     english_pages=list((site/'en').glob('*.html'))
-    assert len(english_pages)==17
+    assert len(english_pages)==len(allpages)-1
     for p in english_pages:
         text=p.read_text();parser=Tags();parser.feed(text)
         polish=Tags();polish.feed((site/p.name).read_text())
@@ -87,6 +87,10 @@ def verify(root,production):
                 if path.endswith('/'):target=target/'index.html'
                 assert target.exists(),(p,link)
     assert all('/wiedza/' not in u.text for u in urls)
+    diets=Tags();diets.feed((site/'diety.html').read_text())
+    assert sum(t=='article' and 'data-meal' in a for t,a in diets.tags)==35
+    assert (site/'en/diety.html').exists()
+    assert not (site/'data/diets.json').exists()
     print(f'PASS {"production" if production else "preview"}: {len(allpages)} Polish pages, {len(english_pages)} English pages, {len(mapping)} legacy routes, sitemap, metadata, external dependency scan')
 
 def main():

@@ -9,6 +9,8 @@
 - Oferty dostępne bez JavaScript. Płatności pobierane z konfiguracji podczas build.
 - GitHub Pages publikuje tylko _site/, bez instrukcji AI i danych źródłowych. Samo repo jest publiczne.
 - Nie symulować prywatności hasłami zaszytymi w JavaScript. Brak danych klientów i sekretów w repo.
+- Publiczne diety zawierają wyłącznie podglądy: nazwę, zdjęcie, kategorię, czas, liczbę składników i zbiorcze makro. Pełne składniki, przygotowanie, zapisane plany, wyniki klientów i historia obliczeń pozostają w prywatnym plannerze. Każdy import sprawdzać przed commitem.
+- Filtrowanie katalogu i orientacyjne kalkulatory bez trwałego zapisu realizować lokalnie w JavaScript. Backend dodawać dopiero dla kont, prywatnych danych, trwałego zapisu, panelu administracyjnego lub logiki wymagającej ochrony serwerowej.
 - Wyjątek zaakceptowany przez użytkownika 2026-09-15: kosmetyczna bramka akceptacyjna działu Wiedza z datą YYYYMMDD (Europe/Warsaw). Nie nazywać jej zabezpieczeniem prywatności; brak treści poufnych. Podgląd noindex poza sitemap do odrębnej decyzji o publikacji indeksowalnej.
 
 - Ten standard opisuje obecną statyczną stronę; nie przesądza stosu przyszłej aplikacji Java.

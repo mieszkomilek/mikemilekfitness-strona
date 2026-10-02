@@ -40,7 +40,7 @@ class EnglishPage(HTMLParser):
                 continue
             if tag == 'html' and key == 'lang':
                 value = 'en'
-            elif key in {'alt', 'title', 'aria-label'}:
+            elif key in {'alt', 'title', 'aria-label', 'placeholder', 'data-name'}:
                 value = self.translate(value)
             elif tag == 'meta' and key == 'content' and original.get('name', original.get('property')) in {'description', 'og:title', 'og:description'}:
                 value = self.translate(value)

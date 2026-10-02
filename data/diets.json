@@ -1,0 +1,626 @@
+[
+  {
+    "id": 1,
+    "name": "Ziemniaki z pieczarkami i cebulą z dodatkiem szparagów i kalafiora",
+    "nameEn": "Potatoes with mushrooms and onions with the addition of asparagus and cauliflower",
+    "image": "assets/diets/meal-1.jpg",
+    "category": "main",
+    "categoryLabel": "Dania główne",
+    "categoryLabelEn": "Main dishes",
+    "preparationMinutes": 20,
+    "ingredientCount": 7,
+    "nutrition": {
+      "kcal": 399,
+      "protein": 14,
+      "carbs": 38,
+      "fat": 21,
+      "fiber": 13
+    }
+  },
+  {
+    "id": 2,
+    "name": "Kotlet warzywny z ziemniakami mizerią i warzywami z pieca",
+    "nameEn": "Vegetable cutlet with cucumber salad and oven-baked vegetables",
+    "image": "assets/diets/meal-2.jpg",
+    "category": "main",
+    "categoryLabel": "Dania główne",
+    "categoryLabelEn": "Main dishes",
+    "preparationMinutes": 20,
+    "ingredientCount": 14,
+    "nutrition": {
+      "kcal": 402,
+      "protein": 11,
+      "carbs": 52,
+      "fat": 17,
+      "fiber": 11
+    }
+  },
+  {
+    "id": 3,
+    "name": "Sałatka z awokado, oliwkami i suszonymi pomidorami",
+    "nameEn": "Salad with avocado, olives and dried tomatoes",
+    "image": "assets/diets/meal-3.jpg",
+    "category": "salads",
+    "categoryLabel": "Sałatki",
+    "categoryLabelEn": "Salads",
+    "preparationMinutes": 20,
+    "ingredientCount": 4,
+    "nutrition": {
+      "kcal": 400,
+      "protein": 6,
+      "carbs": 15,
+      "fat": 35,
+      "fiber": 9
+    }
+  },
+  {
+    "id": 4,
+    "name": "Wegańskie pancakes",
+    "nameEn": "Vegan pancakes",
+    "image": "assets/diets/meal-4.jpg",
+    "category": "sweet",
+    "categoryLabel": "Słodkie i owocowe",
+    "categoryLabelEn": "Sweet and fruit-based",
+    "preparationMinutes": 20,
+    "ingredientCount": 6,
+    "nutrition": {
+      "kcal": 395,
+      "protein": 11,
+      "carbs": 77,
+      "fat": 5,
+      "fiber": 7
+    }
+  },
+  {
+    "id": 5,
+    "name": "Naleśniki bez jajek",
+    "nameEn": "Pancakes without eggs",
+    "image": "assets/diets/meal-5.jpg",
+    "category": "sweet",
+    "categoryLabel": "Słodkie i owocowe",
+    "categoryLabelEn": "Sweet and fruit-based",
+    "preparationMinutes": 20,
+    "ingredientCount": 5,
+    "nutrition": {
+      "kcal": 398,
+      "protein": 13,
+      "carbs": 64,
+      "fat": 10,
+      "fiber": 3
+    }
+  },
+  {
+    "id": 6,
+    "name": "Burger wegański",
+    "nameEn": "Vegan burger",
+    "image": "assets/diets/meal-6.jpg",
+    "category": "handheld",
+    "categoryLabel": "Burgery, pity i wrapy",
+    "categoryLabelEn": "Burgers, pitas and wraps",
+    "preparationMinutes": 20,
+    "ingredientCount": 11,
+    "nutrition": {
+      "kcal": 407,
+      "protein": 11,
+      "carbs": 61,
+      "fat": 14,
+      "fiber": 4
+    }
+  },
+  {
+    "id": 7,
+    "name": "Makaron bezjajeczny z warzywami i tofu",
+    "nameEn": "Pasta with vegetables and tofu",
+    "image": "assets/diets/meal-7.jpg",
+    "category": "main",
+    "categoryLabel": "Dania główne",
+    "categoryLabelEn": "Main dishes",
+    "preparationMinutes": 20,
+    "ingredientCount": 6,
+    "nutrition": {
+      "kcal": 397,
+      "protein": 20,
+      "carbs": 47,
+      "fat": 15,
+      "fiber": 4
+    }
+  },
+  {
+    "id": 8,
+    "name": "Kotlety z ciecierzycy do ziemniaków i fasolki szparagowej z dodatkiem ogórków",
+    "nameEn": "Chickpea cutlets for potatoes and green beans with the addition of cucumbers",
+    "image": "assets/diets/meal-8.jpg",
+    "category": "main",
+    "categoryLabel": "Dania główne",
+    "categoryLabelEn": "Main dishes",
+    "preparationMinutes": 20,
+    "ingredientCount": 13,
+    "nutrition": {
+      "kcal": 410,
+      "protein": 15,
+      "carbs": 60,
+      "fat": 12,
+      "fiber": 13
+    }
+  },
+  {
+    "id": 9,
+    "name": "Sałatka z tofu i warzywami z dodatkiem kotleta warzywnego",
+    "nameEn": "Tofu and vegetables salad with a vegetable cutlet",
+    "image": "assets/diets/meal-9.jpg",
+    "category": "salads",
+    "categoryLabel": "Sałatki",
+    "categoryLabelEn": "Salads",
+    "preparationMinutes": 20,
+    "ingredientCount": 5,
+    "nutrition": {
+      "kcal": 399,
+      "protein": 28,
+      "carbs": 12,
+      "fat": 27,
+      "fiber": 6
+    }
+  },
+  {
+    "id": 10,
+    "name": "Kotlety warzywne z kaszą pęczak i mizerią i sosem z rzodkiewki",
+    "nameEn": "Vegetable cutlets with pearl barley and cucumber salad and radish sauce",
+    "image": "assets/diets/meal-10.jpg",
+    "category": "main",
+    "categoryLabel": "Dania główne",
+    "categoryLabelEn": "Main dishes",
+    "preparationMinutes": 20,
+    "ingredientCount": 13,
+    "nutrition": {
+      "kcal": 405,
+      "protein": 14,
+      "carbs": 58,
+      "fat": 13,
+      "fiber": 10
+    }
+  },
+  {
+    "id": 11,
+    "name": "Bułka wieloziarnista z tofu i warzywami",
+    "nameEn": "Multigrain roll with tofu and vegetables",
+    "image": "assets/diets/meal-11.jpg",
+    "category": "handheld",
+    "categoryLabel": "Burgery, pity i wrapy",
+    "categoryLabelEn": "Burgers, pitas and wraps",
+    "preparationMinutes": 20,
+    "ingredientCount": 6,
+    "nutrition": {
+      "kcal": 406,
+      "protein": 26,
+      "carbs": 53,
+      "fat": 10,
+      "fiber": 5
+    }
+  },
+  {
+    "id": 12,
+    "name": "Sałatka z ciecierzycą, tofu, awokado i groszkiem",
+    "nameEn": "Salad with chickpeas, tofu, avocado and peas",
+    "image": "assets/diets/meal-12.jpg",
+    "category": "salads",
+    "categoryLabel": "Sałatki",
+    "categoryLabelEn": "Salads",
+    "preparationMinutes": 20,
+    "ingredientCount": 5,
+    "nutrition": {
+      "kcal": 397,
+      "protein": 24,
+      "carbs": 36,
+      "fat": 18,
+      "fiber": 11
+    }
+  },
+  {
+    "id": 13,
+    "name": "Burger roślinny",
+    "nameEn": "Vegetable burger",
+    "image": "assets/diets/meal-13.jpg",
+    "category": "handheld",
+    "categoryLabel": "Burgery, pity i wrapy",
+    "categoryLabelEn": "Burgers, pitas and wraps",
+    "preparationMinutes": 20,
+    "ingredientCount": 11,
+    "nutrition": {
+      "kcal": 401,
+      "protein": 16,
+      "carbs": 69,
+      "fat": 7,
+      "fiber": 7
+    }
+  },
+  {
+    "id": 14,
+    "name": "Ziemniaki ze szparagami oraz plasterkami tofu",
+    "nameEn": "Potatoes with asparagus and slices of tofu",
+    "image": "assets/diets/meal-14.jpg",
+    "category": "main",
+    "categoryLabel": "Dania główne",
+    "categoryLabelEn": "Main dishes",
+    "preparationMinutes": 20,
+    "ingredientCount": 5,
+    "nutrition": {
+      "kcal": 399,
+      "protein": 32,
+      "carbs": 34,
+      "fat": 15,
+      "fiber": 6
+    }
+  },
+  {
+    "id": 15,
+    "name": "Talerz roślinny z wrapami",
+    "nameEn": "Vegetable plate with wraps",
+    "image": "assets/diets/meal-15.jpg",
+    "category": "handheld",
+    "categoryLabel": "Burgery, pity i wrapy",
+    "categoryLabelEn": "Burgers, pitas and wraps",
+    "preparationMinutes": 20,
+    "ingredientCount": 9,
+    "nutrition": {
+      "kcal": 404,
+      "protein": 23,
+      "carbs": 31,
+      "fat": 21,
+      "fiber": 8
+    }
+  },
+  {
+    "id": 16,
+    "name": "Bataty z hummusem i kuleczkami warzywnymi",
+    "nameEn": "Sweet potatoes with hummus and vegetable balls",
+    "image": "assets/diets/meal-16.jpg",
+    "category": "main",
+    "categoryLabel": "Dania główne",
+    "categoryLabelEn": "Main dishes",
+    "preparationMinutes": 20,
+    "ingredientCount": 8,
+    "nutrition": {
+      "kcal": 399,
+      "protein": 25,
+      "carbs": 22,
+      "fat": 23,
+      "fiber": 10
+    }
+  },
+  {
+    "id": 17,
+    "name": "Sałatka z kukurydzą, cukinią i awokado",
+    "nameEn": "Salad with corn, zucchini and avocado",
+    "image": "assets/diets/meal-17.jpg",
+    "category": "salads",
+    "categoryLabel": "Sałatki",
+    "categoryLabelEn": "Salads",
+    "preparationMinutes": 20,
+    "ingredientCount": 5,
+    "nutrition": {
+      "kcal": 404,
+      "protein": 10,
+      "carbs": 36,
+      "fat": 25,
+      "fiber": 13
+    }
+  },
+  {
+    "id": 18,
+    "name": "Kasza jęczmienna z ciecierzycą i dynią na mleczku kokosowym",
+    "nameEn": "Barley with chickpeas and pumpkin on coconut milk",
+    "image": "assets/diets/meal-18.jpg",
+    "category": "main",
+    "categoryLabel": "Dania główne",
+    "categoryLabelEn": "Main dishes",
+    "preparationMinutes": 20,
+    "ingredientCount": 4,
+    "nutrition": {
+      "kcal": 395,
+      "protein": 10,
+      "carbs": 43,
+      "fat": 20,
+      "fiber": 10
+    }
+  },
+  {
+    "id": 19,
+    "name": "Ciecierzyca z cukinią, ogórkiem kiszonym, pomidorami suszonymi i oliwkami",
+    "nameEn": "Chickpeas with zucchini, pickled cucumbers, dried tomatoes and olives",
+    "image": "assets/diets/meal-19.jpg",
+    "category": "main",
+    "categoryLabel": "Dania główne",
+    "categoryLabelEn": "Main dishes",
+    "preparationMinutes": 20,
+    "ingredientCount": 6,
+    "nutrition": {
+      "kcal": 398,
+      "protein": 18,
+      "carbs": 54,
+      "fat": 12,
+      "fiber": 15
+    }
+  },
+  {
+    "id": 20,
+    "name": "Arbuzowo",
+    "nameEn": "Watermelon and that's all",
+    "image": "assets/diets/meal-20.jpg",
+    "category": "sweet",
+    "categoryLabel": "Słodkie i owocowe",
+    "categoryLabelEn": "Sweet and fruit-based",
+    "preparationMinutes": 20,
+    "ingredientCount": 1,
+    "nutrition": {
+      "kcal": 402,
+      "protein": 7,
+      "carbs": 91,
+      "fat": 1,
+      "fiber": 3
+    }
+  },
+  {
+    "id": 21,
+    "name": "Wegański obiad domowy, ziemniaki z mizerią i kotlecikami z tofu",
+    "nameEn": "Vegan home dinner, potatoes with cucumber salad and tofu chops",
+    "image": "assets/diets/meal-21.jpg",
+    "category": "main",
+    "categoryLabel": "Dania główne",
+    "categoryLabelEn": "Main dishes",
+    "preparationMinutes": 20,
+    "ingredientCount": 6,
+    "nutrition": {
+      "kcal": 399,
+      "protein": 19,
+      "carbs": 55,
+      "fat": 11,
+      "fiber": 5
+    }
+  },
+  {
+    "id": 22,
+    "name": "Ziemniaczki z koperkiem, buraczkami, ogórkami i tofu z sosem śliwkowym oraz jabłkiem",
+    "nameEn": "Potatoes with dill, beets, cucumbers and tofu with plum sauce and apple",
+    "image": "assets/diets/meal-22.jpg",
+    "category": "main",
+    "categoryLabel": "Dania główne",
+    "categoryLabelEn": "Main dishes",
+    "preparationMinutes": 20,
+    "ingredientCount": 9,
+    "nutrition": null
+  },
+  {
+    "id": 23,
+    "name": "Szaszłyk wegański z ryżem na talerzu",
+    "nameEn": "Vegan kebab with rice on a plate",
+    "image": "assets/diets/meal-23.jpg",
+    "category": "main",
+    "categoryLabel": "Dania główne",
+    "categoryLabelEn": "Main dishes",
+    "preparationMinutes": 20,
+    "ingredientCount": 9,
+    "nutrition": {
+      "kcal": 401,
+      "protein": 15,
+      "carbs": 55,
+      "fat": 14,
+      "fiber": 7
+    }
+  },
+  {
+    "id": 24,
+    "name": "Kotlet z ziemniakami i sosem jogurtowym",
+    "nameEn": "Cutlet with potatoes and yogurt sauce",
+    "image": "assets/diets/meal-24.jpg",
+    "category": "main",
+    "categoryLabel": "Dania główne",
+    "categoryLabelEn": "Main dishes",
+    "preparationMinutes": 20,
+    "ingredientCount": 14,
+    "nutrition": {
+      "kcal": 383,
+      "protein": 12,
+      "carbs": 42,
+      "fat": 19,
+      "fiber": 10
+    }
+  },
+  {
+    "id": 25,
+    "name": "Sałatka z kalarepą",
+    "nameEn": "Kohlrabi Salad",
+    "image": "assets/diets/meal-25.jpg",
+    "category": "salads",
+    "categoryLabel": "Sałatki",
+    "categoryLabelEn": "Salads",
+    "preparationMinutes": 20,
+    "ingredientCount": 8,
+    "nutrition": {
+      "kcal": 397,
+      "protein": 12,
+      "carbs": 76,
+      "fat": 5,
+      "fiber": 9
+    }
+  },
+  {
+    "id": 26,
+    "name": "Pity z tofu i hummusem",
+    "nameEn": "Pita with tofu and hummus",
+    "image": "assets/diets/meal-26.jpg",
+    "category": "handheld",
+    "categoryLabel": "Burgery, pity i wrapy",
+    "categoryLabelEn": "Burgers, pitas and wraps",
+    "preparationMinutes": 20,
+    "ingredientCount": 7,
+    "nutrition": {
+      "kcal": 405,
+      "protein": 22,
+      "carbs": 46,
+      "fat": 15,
+      "fiber": 7
+    }
+  },
+  {
+    "id": 27,
+    "name": "Sałatka na bazie tofu, kukurydzy oraz awokado",
+    "nameEn": "Salad based on tofu, corn and avocado",
+    "image": "assets/diets/meal-27.jpg",
+    "category": "salads",
+    "categoryLabel": "Sałatki",
+    "categoryLabelEn": "Salads",
+    "preparationMinutes": 20,
+    "ingredientCount": 6,
+    "nutrition": {
+      "kcal": 403,
+      "protein": 20,
+      "carbs": 23,
+      "fat": 26,
+      "fiber": 8
+    }
+  },
+  {
+    "id": 28,
+    "name": "Wysokobiałkowa wegańska sałatka",
+    "nameEn": "A high-protein vegan salad",
+    "image": "assets/diets/meal-28.jpg",
+    "category": "salads",
+    "categoryLabel": "Sałatki",
+    "categoryLabelEn": "Salads",
+    "preparationMinutes": 20,
+    "ingredientCount": 6,
+    "nutrition": {
+      "kcal": 397,
+      "protein": 36,
+      "carbs": 11,
+      "fat": 23,
+      "fiber": 5
+    }
+  },
+  {
+    "id": 29,
+    "name": "Roślinna sałatka na bazie ryżu i tofu",
+    "nameEn": "Vegetable salad based on rice and tofu",
+    "image": "assets/diets/meal-29.jpg",
+    "category": "salads",
+    "categoryLabel": "Sałatki",
+    "categoryLabelEn": "Salads",
+    "preparationMinutes": 20,
+    "ingredientCount": 5,
+    "nutrition": {
+      "kcal": 402,
+      "protein": 20,
+      "carbs": 52,
+      "fat": 13,
+      "fiber": 4
+    }
+  },
+  {
+    "id": 30,
+    "name": "Białkowa sałatka wegańska wzmocniona szpinakiem oraz kukurydzą",
+    "nameEn": "Vegan protein salad reinforced with spinach and corn",
+    "image": "assets/diets/meal-30.jpg",
+    "category": "salads",
+    "categoryLabel": "Sałatki",
+    "categoryLabelEn": "Salads",
+    "preparationMinutes": 20,
+    "ingredientCount": 5,
+    "nutrition": {
+      "kcal": 399,
+      "protein": 36,
+      "carbs": 16,
+      "fat": 21,
+      "fiber": 6
+    }
+  },
+  {
+    "id": 31,
+    "name": "Soczewica z ciecierzycą - proteinowa sałatka",
+    "nameEn": "Lentils with chickpeas - a protein salad",
+    "image": "assets/diets/meal-31.jpg",
+    "category": "salads",
+    "categoryLabel": "Sałatki",
+    "categoryLabelEn": "Salads",
+    "preparationMinutes": 20,
+    "ingredientCount": 5,
+    "nutrition": {
+      "kcal": 401,
+      "protein": 25,
+      "carbs": 60,
+      "fat": 7,
+      "fiber": 14
+    }
+  },
+  {
+    "id": 32,
+    "name": "Sałatka makro-proporcjonalna z hummusem",
+    "nameEn": "Macro-proportional salad with hummus",
+    "image": "assets/diets/meal-32.jpg",
+    "category": "salads",
+    "categoryLabel": "Sałatki",
+    "categoryLabelEn": "Salads",
+    "preparationMinutes": 20,
+    "ingredientCount": 7,
+    "nutrition": {
+      "kcal": 402,
+      "protein": 20,
+      "carbs": 23,
+      "fat": 26,
+      "fiber": 8
+    }
+  },
+  {
+    "id": 33,
+    "name": "Makaron bezjajeczny z cukinią",
+    "nameEn": "Egg-free pasta with zucchini",
+    "image": "assets/diets/meal-33.jpg",
+    "category": "main",
+    "categoryLabel": "Dania główne",
+    "categoryLabelEn": "Main dishes",
+    "preparationMinutes": 20,
+    "ingredientCount": 5,
+    "nutrition": {
+      "kcal": 398,
+      "protein": 26,
+      "carbs": 50,
+      "fat": 11,
+      "fiber": 4
+    }
+  },
+  {
+    "id": 34,
+    "name": "Owocowa magia",
+    "nameEn": "Fruit Magic",
+    "image": "assets/diets/meal-34.jpg",
+    "category": "sweet",
+    "categoryLabel": "Słodkie i owocowe",
+    "categoryLabelEn": "Sweet and fruit-based",
+    "preparationMinutes": 20,
+    "ingredientCount": 3,
+    "nutrition": {
+      "kcal": 406,
+      "protein": 4,
+      "carbs": 56,
+      "fat": 18,
+      "fiber": 10
+    }
+  },
+  {
+    "id": 35,
+    "name": "Tłuszczowo-owocowo",
+    "nameEn": "Fat-fruit",
+    "image": "assets/diets/meal-35.jpg",
+    "category": "sweet",
+    "categoryLabel": "Słodkie i owocowe",
+    "categoryLabelEn": "Sweet and fruit-based",
+    "preparationMinutes": 20,
+    "ingredientCount": 4,
+    "nutrition": {
+      "kcal": 405,
+      "protein": 5,
+      "carbs": 63,
+      "fat": 15,
+      "fiber": 10
+    }
+  }
+]

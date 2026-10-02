@@ -9,6 +9,7 @@ Zmiana nazwy repo na mieszkomilek/mikemilekfitness-strona na polecenie użytkown
 2026-09-14 — rewizja dokumentacji przy wersji strony 1.11: audyt repo/deploymentu, HTTPS i www, odczyt Cloudflare DNS, uporządkowanie AS-IS/TO-BE/TODO oraz ograniczeń. Bez zmian kodu, SEO, DNS i płatności. Testy oraz zakres dowodów: AUDIT_2026-09-14.md. Wiersz 1.11 opisuje historyczne zdarzenie z 11 września; commit ab802aa opublikowano 14 września.
 | Wersja | Data | Opis |
 | --- | --- | --- |
+| 1.15 | 2026-10-02 | Diety/Diets: 35 publicznych podglądów posiłków z prywatnego plannera, lokalne zdjęcia, kategorie, wyszukiwarka, zbiorcze makro i kalkulator kcal w JavaScript. Bez pełnych przepisów, zapisanych planów i danych klientów; importer, build i QA obejmują granicę publikacji. |
 | 1.14 | 2026-09-15 | Zakładka Wiedza/Knowledge: 16 stron podglądu, link w nawigacji, zaakceptowana bramka z bieżącą datą Europe/Warsaw, sesja dzienna, noindex i brak wpisów sitemap. Treści i narzędzia oznaczone jako przygotowywane. |
 | 1.13 | 2026-09-15 | Pełna zgodność struktury 17 par PL/EN: YouTube, intro, fakty, stopka, opisy ofert, 29 wariantów, FAQ, partnerzy i polityki. Jawny słownik tłumaczeń z przerwaniem build przy brakach; testy porównawcze, widoczne flagi na telefonie, poprawa kontrastu i usunięcie duplikatów metadanych. Szczegóły: BILINGUAL_AUDIT_2026-09-15.md. |
 | 1.12 | 2026-09-14 | Wersja angielska pod /en/, wybór języka przy pierwszej wizycie, stały przełącznik PL/EN, zapamiętanie ustawienia, hreflang i 34 adresy sitemap. |
